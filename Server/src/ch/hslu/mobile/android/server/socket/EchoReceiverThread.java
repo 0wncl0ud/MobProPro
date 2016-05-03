@@ -37,12 +37,12 @@ public class EchoReceiverThread extends Thread {
                                     jsonObject.writeJSONString(out);
                                     
                                     String name = (String) jsonObject.get("Name");
-                                    String author = (String) jsonObject.get("Author");
-                                    JSONArray companyList = (JSONArray) jsonObject.get("Company List");
+                                    String author = (String) jsonObject.get("Studiengang");
+                                    JSONArray companyList = (JSONArray) jsonObject.get("Position");
 
-                                    System.out.println("Name: " + name);
-                                    System.out.println("Author: " + author);
-                                    System.out.println("\nCompany List:");
+                                    System.out.println("\nName: " + name);
+                                    System.out.println("\nStudienrichtung: " + author);
+                                    System.out.println("\nPosition:");
                                     Iterator<String> iterator = companyList.iterator();
                                     while (iterator.hasNext()) {
                                         System.out.println(iterator.next());

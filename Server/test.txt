@@ -1,9 +1,8 @@
 {
-    "Name": "crunchify.com",
-    "Author": "App Shah",
-    "Company List": [
-        "Compnay: eBay",
-        "Compnay: Paypal",
-        "Compnay: Google"
+    "Name": "Manuel Felber",
+    "Studiengang": "ET",
+    "Position": [
+        "X: 12",
+        "Y: 13",
     ]
 }
