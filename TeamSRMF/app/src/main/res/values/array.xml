@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Studienrichtung">
+        <item>Elektrotechnik</item>
+        <item>Informatik</item>
+        <item>Maschinenbau</item>
+        <item>Wirtschaftsinformatik</item>
+        <item>Architektur</item>
+        <item>Dozent</item>
+        <item>Sonstige</item>
+    </string-array>
+    <string-array name="StudienrichtungValues">
+        <item>Elektrotechnik</item>
+        <item>Informatik</item>
+        <item>Maschinenbau</item>
+        <item>Wirtschaftsinformatik</item>
+        <item>Architektur</item>
+        <item>Dozent</item>
+        <item>Sonstige</item>
+    </string-array>
+    <string-array name="Semester">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>weitere</item>
+    </string-array>
+    <string-array name="SemesterValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>weitere</item>
+    </string-array>
+
+</resources>
