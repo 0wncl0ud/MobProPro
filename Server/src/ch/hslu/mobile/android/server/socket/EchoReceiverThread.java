@@ -54,7 +54,7 @@ public class EchoReceiverThread extends Thread {
                                 
                                 //warte auf antwort
 				String request = tcpSocket.receiveLine();
-				String response = createResponseFor(request) + out.toString();
+				String response = /*createResponseFor(request) +*/ out.toString();
 				if (response == null) {
 					tcpSocket.sendLine(EXIT);
 					tcpSocket.close();

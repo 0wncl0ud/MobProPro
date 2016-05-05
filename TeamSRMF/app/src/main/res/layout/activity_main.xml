@@ -113,6 +113,13 @@
             android:text="TEE-Preferences Editieren"
             android:id="@+id/buttonTeePrefEdit"
             android:onClick="buttonTeePrefEditClicked" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test"
+            android:id="@+id/TxtTest"
+            android:textSize="30dp"/>
+
     </LinearLayout>
 </ScrollView>
 

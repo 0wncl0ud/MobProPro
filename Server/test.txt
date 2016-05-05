@@ -1,8 +1,8 @@
 {
-    "Name": "Manuel Felber",
-    "Studiengang": "ET",
-    "Position": [
-        "X: 12",
-        "Y: 13",
-    ]
+  "Name": "Manuel",
+  "Studiengang": "ET",
+  "Position": [
+    "x=12",
+    "y=13"
+  ]
 }
