@@ -31,6 +31,10 @@ public class TCPClient extends Activity{
     private static final String SERVER_IP = "10.0.2.2";
     private Socket socket;
 
+    private String name;
+    private String studienrichtung;
+    private int positionX, positionY;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +79,11 @@ public class TCPClient extends Activity{
             TextView txtText = (TextView)findViewById(R.id.TxtTest);
             try{
                 JSONObject json = new JSONObject(s);
-                //JSONObject firstObject = json.getJSONObject(0);
-                //JSONObject firstDef = json.getJSONArray("lfs").getJSONObject(0);
-                txtText.setText("HTTP: " + json.getString("Name") + "(since " + json.getString("Studiengang") + ")");
+                name = json.getString("Name");
+                studienrichtung = json.getString("Studiengang");
+                positionX = json.getJSONArray("Position").getJSONObject(0).getInt("x");
+                positionY = json.getJSONArray("Position").getJSONObject(0).getInt("y");
+                txtText.setText("Name: " + name + "\nStudienrichtung:  " + studienrichtung + "\nPosition: " + positionX + " " + positionY);
             }
             catch (JSONException ex){
                 System.out.println(ex.getMessage());
