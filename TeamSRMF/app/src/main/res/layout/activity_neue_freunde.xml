@@ -19,6 +19,26 @@
             android:textFilterEnabled="true"
             android:layoutMode="opticalBounds"
             android:contextClickable="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="100">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Alle"
+            android:id="@+id/SelectAll"
+            android:layout_weight="50"
+            android:onClick="AllClicked"/>
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Niemand"
+            android:id="@+id/buttonLoad"
+            android:layout_weight="50"
+            android:onClick="NoneClicked"/>
+    </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,24 +54,4 @@
         android:onClick="addItems"
         android:weightSum="100"/>
 
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="100">
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Alle"
-                android:id="@+id/SelectAll"
-                android:layout_weight="50"
-                android:onClick="AllClicked"/>
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Niemand"
-                android:id="@+id/buttonLoad"
-                android:layout_weight="50"
-                android:onClick="NoneClicked"/>
-        </LinearLayout>
     </LinearLayout>
