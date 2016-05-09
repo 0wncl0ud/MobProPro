@@ -1,107 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/scrollView"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    >
+    android:layout_height="fill_parent"
+    android:id="@android:id/tabhost">
 
     <LinearLayout
+        android:id="@+id/LinearLayout01"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1">
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
 
-        <TextView
-            android:layout_width="match_parent"
+        <TabWidget
+            android:id="@android:id/tabs"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="FindMe"
-            android:id="@+id/AppName"
-            android:singleLine="false"
-            android:background="@android:color/darker_gray"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Username"
-            android:id="@+id/textView"
-            android:textSize="30dp"
-            android:singleLine="false" />
+            android:layout_width="fill_parent">
+        </TabWidget>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_gravity="center_horizontal" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Studienrichtung"
-            android:id="@+id/TxtStudienrichtung"
-            android:textSize="30dp"
-            android:singleLine="false" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/Studienrichtung"
-            android:entryValues="@array/StudienrichtungValues"
-            android:key="Studienrichtung"
-            android:persistent="true"
-            android:shouldDisableView="true"
-            android:id="@+id/spinnerStudienrichtung"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Semester"
-            android:id="@+id/TxtSemester"
-            android:textSize="30dp"
-            android:singleLine="false" />
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/Semester"
-            android:entryValues="@array/SemesterValues"
-            android:key="Studienrichtung"
-            android:persistent="true"
-            android:shouldDisableView="true"
-            android:id="@+id/spinnerSemesterValue"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Farbe"
-            android:id="@+id/TxtFarbe"
-            android:textSize="30dp"
-            android:singleLine="false" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:text="Speichern"
-            android:id="@+id/saveOwnData"
-            android:onClick="saveOwnDataClicked" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Test"
-            android:id="@+id/TxtTest"
-            android:textSize="30dp"/>
-
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+        </FrameLayout>
 
     </LinearLayout>
 
-</ScrollView>
-
+</TabHost>

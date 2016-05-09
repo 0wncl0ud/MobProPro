@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Meine Freunde"
+            android:id="@+id/TxtStudienrichtung"
+            android:textSize="30dp"
+            android:singleLine="false" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Löschen"
+            android:id="@+id/löscheFreunde"
+            android:onClick="löscheFreundeClicked" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hinzufügen"
+            android:id="@+id/hinzufügenFreunde"
+            android:onClick="hinzufügenFreundeClicked" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anzeigen"
+            android:id="@+id/anzeigenFreunde"
+            android:onClick="anzeigenFreundeClicked" />
+    </LinearLayout>
+
+</ScrollView>
+

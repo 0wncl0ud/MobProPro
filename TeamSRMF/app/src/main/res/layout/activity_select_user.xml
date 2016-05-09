@@ -24,27 +24,10 @@
             android:singleLine="false"
 
             android:background="@android:color/darker_gray"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Semester"
-            android:id="@+id/TxtSemester"
-            android:textSize="30dp"
-            android:singleLine="false" />
-
-        <CheckedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New CheckedTextView"
-            android:id="@+id/checkedTextView" />
-
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView"
+            android:id="@+id/userListView"
             android:drawSelectorOnTop="false"
             android:layout_gravity="center_horizontal" />
 
@@ -60,14 +43,14 @@
                 android:text="Alle"
                 android:id="@+id/SelectAll"
                 android:layout_weight="50"
-                android:onClick="saveOnClick"/>
+                android:onClick="AllClicked"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Niemand"
                 android:id="@+id/buttonLoad"
                 android:layout_weight="50"
-                android:onClick="loadOnClick"/>
+                android:onClick="NoneClicked"/>
         </LinearLayout>
 
         <Button
@@ -75,14 +58,13 @@
             android:layout_height="wrap_content"
             android:text="Speicher"
             android:id="@+id/saveFilterData"
-            android:onClick="saveUserList" />
+            android:onClick="saveUserListClicked" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Debug, add element"
             android:id="@+id/debugAddElement"
             android:onClick="addItems"/>
-
     </LinearLayout>
 
 </ScrollView>

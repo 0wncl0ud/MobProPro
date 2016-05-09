@@ -29,15 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Filter"
+            android:textSize="40dp"
             android:layout_gravity="bottom"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/switch1"
             android:layout_weight="50" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_gravity="center_horizontal" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,22 +69,6 @@
             android:persistent="true"
             android:shouldDisableView="true"
             android:id="@+id/spinnerSemesterValue"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Username"
-            android:id="@+id/TxtSemester"
-            android:textSize="30dp"
-            android:singleLine="false" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/editText2" />
 
         <Button
             android:layout_width="match_parent"
