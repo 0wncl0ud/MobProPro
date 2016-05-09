@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".FilterSettings" />
+        <activity android:name=".SelectUserActivity"></activity>
         <activity android:name=".TCPClient"></activity>
     </application>
 
