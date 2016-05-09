@@ -1,9 +1,8 @@
 {
-    "Name": "crunchify.com",
-    "Author": "App Shah",
-    "Company List": [
-        "Compnay: eBay",
-        "Compnay: Paypal",
-        "Compnay: Google"
-    ]
+  "Name": "Manuel",
+  "Studiengang": "ET",
+  "Position": [
+    "x" : "12",
+    "y" : "13"
+  ]
 }

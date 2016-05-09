@@ -15,8 +15,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".FilterSettings" />
         <activity android:name=".SelectUserActivity"></activity>
+=======
+
+        <activity android:name=".TCPClient"></activity>
+>>>>>>> origin/master
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
 
 </manifest>
