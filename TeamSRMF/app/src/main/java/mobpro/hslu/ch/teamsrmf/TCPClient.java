@@ -42,8 +42,6 @@ public class TCPClient extends Activity{
         setContentView(R.layout.activity_tcpclient);
         new Thread(new ClientThread()).start();
         JsonLoader loader = new JsonLoader();
-
-        TCPClient client = new TCPClient();
         loader.execute("test");
     }
 
@@ -110,6 +108,5 @@ public class TCPClient extends Activity{
         }
 
     }
-
 
 }
