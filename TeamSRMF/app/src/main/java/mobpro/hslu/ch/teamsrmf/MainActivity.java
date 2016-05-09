@@ -17,7 +17,6 @@ public class MainActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
 
 
@@ -41,7 +40,7 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(tabFreunde);
       //  Intent intent = new Intent(this, TCPClient.class);
       //  startActivity(intent);
-=======
+
         TCPClient client = new TCPClient();
 //        while (!client.getState()){
 //
@@ -52,7 +51,6 @@ public class MainActivity extends TabActivity {
     public void saveOwnDataClicked(View v){
         Intent filterSettingsActivity = new Intent(this, FilterSettings.class);
         startActivity(filterSettingsActivity);
->>>>>>> 85fe22076cabd08cc25d0d34c27ef11523f5e8f3
     }
 
 }
