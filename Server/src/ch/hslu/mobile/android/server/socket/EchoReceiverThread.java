@@ -35,26 +35,14 @@ public class EchoReceiverThread extends Thread {
                                     JSONObject jsonObject = (JSONObject) obj;
                                     System.out.print(obj);
                                     jsonObject.writeJSONString(out);
-                                    
-                                    String name = (String) jsonObject.get("Name");
-                                    String author = (String) jsonObject.get("Studiengang");
-                                    JSONArray companyList = (JSONArray) jsonObject.get("Position");
-
-                                    System.out.println("\nName: " + name);
-                                    System.out.println("\nStudienrichtung: " + author);
-                                    System.out.println("\nPosition:");
-                                    Iterator<String> iterator = companyList.iterator();
-                                    while (iterator.hasNext()) {
-                                        System.out.println(iterator.next());
-                                    }
                                 }
                                 catch(Exception e){
-                                    
+                                     System.out.print(e.getMessage());
                                 }
                                 
                                 //warte auf antwort
 				String request = tcpSocket.receiveLine();
-				String response = /*createResponseFor(request) +*/ out.toString();
+				String response = createResponseFor(request) + out.toString();
 				if (response == null) {
 					tcpSocket.sendLine(EXIT);
 					tcpSocket.close();
@@ -81,7 +69,7 @@ public class EchoReceiverThread extends Thread {
 				response = null;
 			} else {
 				System.out.println(tcpSocket.getAddress() + " received '" + request + "'");
-				response = "Response from Server: " + request;
+				response = request;
 			}
 		} else {
 			System.out.println(tcpSocket.getAddress() + " received = null");

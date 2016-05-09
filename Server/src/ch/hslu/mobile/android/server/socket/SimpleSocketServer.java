@@ -15,7 +15,7 @@ public class SimpleSocketServer {
 		if (args.length > 0) {
 			try {
 				port = Integer.parseInt(args[0]);
-			} catch (NumberFormatException nfe) {
+			} catch (NumberFormatException ex) {
 				// nop.
 			}
 		}

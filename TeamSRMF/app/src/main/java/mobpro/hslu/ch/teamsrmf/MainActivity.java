@@ -2,11 +2,13 @@ package mobpro.hslu.ch.teamsrmf;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TabHost;
 
+import java.util.ArrayList;
 
 public class MainActivity extends TabActivity {
 
@@ -15,6 +17,7 @@ public class MainActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+<<<<<<< HEAD
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
 
 
@@ -38,6 +41,18 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(tabFreunde);
       //  Intent intent = new Intent(this, TCPClient.class);
       //  startActivity(intent);
+=======
+        TCPClient client = new TCPClient();
+//        while (!client.getState()){
+//
+//      }
+//        ArrayList<Benutzer> benutzers = client.getListOfBenutzer();
+
+    }
+    public void saveOwnDataClicked(View v){
+        Intent filterSettingsActivity = new Intent(this, FilterSettings.class);
+        startActivity(filterSettingsActivity);
+>>>>>>> 85fe22076cabd08cc25d0d34c27ef11523f5e8f3
     }
 
 }
