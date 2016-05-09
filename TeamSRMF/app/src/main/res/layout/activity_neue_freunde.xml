@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/neueFreundeList"
+            android:drawSelectorOnTop="true"
+            android:weightSum="1"
+            android:layout_gravity="center_horizontal"
+            android:choiceMode="multipleChoice"
+            android:clickable="true"
+            android:visibility="visible"
+            android:textFilterEnabled="true"
+            android:layoutMode="opticalBounds"
+            android:contextClickable="true" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Speicher"
+        android:id="@+id/saveFilterData"
+        android:onClick="saveUserListClicked"
+        android:weightSum="100"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Debug, add element"
+        android:id="@+id/debugAddElement"
+        android:onClick="addItems"
+        android:weightSum="100"/>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100">
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Alle"
+                android:id="@+id/SelectAll"
+                android:layout_weight="50"
+                android:onClick="AllClicked"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Niemand"
+                android:id="@+id/buttonLoad"
+                android:layout_weight="50"
+                android:onClick="NoneClicked"/>
+        </LinearLayout>
+    </LinearLayout>

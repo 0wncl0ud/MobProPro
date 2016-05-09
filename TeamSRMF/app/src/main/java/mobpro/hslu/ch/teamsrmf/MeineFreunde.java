@@ -22,4 +22,9 @@ public class MeineFreunde extends AppCompatActivity {
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Karte");
     }
+
+    public void hinzufügenFreundeClicked(View v){
+        Intent neueFreundeActivity = new Intent(this, NeueFreunde.class);
+        startActivity(neueFreundeActivity);
+    }
 }

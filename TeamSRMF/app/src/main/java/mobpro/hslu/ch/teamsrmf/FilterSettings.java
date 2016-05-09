@@ -15,7 +15,7 @@ public class FilterSettings extends AppCompatActivity {
 
 
     public void saveFilterData(View v){
-        Intent selectUser = new Intent(this, SelectUserActivity.class);
+        Intent selectUser = new Intent(this, NeueFreunde.class);
         startActivity(selectUser);
     }
 }
