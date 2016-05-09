@@ -23,22 +23,21 @@
             android:text="FindMe"
             android:id="@+id/AppName"
             android:singleLine="false"
+
             android:background="@android:color/darker_gray"/>
-        <TextView
+        <Switch
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Filter"
+            android:layout_gravity="bottom"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Username"
-            android:id="@+id/textView"
-            android:textSize="30dp"
-            android:singleLine="false" />
-
+            android:id="@+id/switch1"
+            android:layout_weight="50" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:layout_gravity="center_horizontal" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +46,6 @@
             android:id="@+id/TxtStudienrichtung"
             android:textSize="30dp"
             android:singleLine="false" />
-
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,13 +55,12 @@
             android:persistent="true"
             android:shouldDisableView="true"
             android:id="@+id/spinnerStudienrichtung"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Semester"
-            android:id="@+id/TxtSemester"
+            android:id="@+id/TxtSemesterFilter"
             android:textSize="30dp"
             android:singleLine="false" />
 
@@ -76,23 +73,29 @@
             android:persistent="true"
             android:shouldDisableView="true"
             android:id="@+id/spinnerSemesterValue"/>
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Farbe"
-            android:id="@+id/TxtFarbe"
+            android:text="Username"
+            android:id="@+id/TxtSemester"
             android:textSize="30dp"
             android:singleLine="false" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/editText2" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Speichern"
-            android:id="@+id/saveOwnData"
-            android:onClick="saveOwnDataClicked" />
-
+            android:text="Filtern"
+            android:id="@+id/saveFilterData"
+            android:onClick="saveFilterData" />
     </LinearLayout>
 
 </ScrollView>

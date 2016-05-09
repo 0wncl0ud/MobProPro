@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="FindMe"
+            android:id="@+id/AppName"
+            android:singleLine="false"
+
+            android:background="@android:color/darker_gray"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Semester"
+            android:id="@+id/TxtSemester"
+            android:textSize="30dp"
+            android:singleLine="false" />
+
+        <CheckedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New CheckedTextView"
+            android:id="@+id/checkedTextView" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listView"
+            android:drawSelectorOnTop="false"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="100">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Alle"
+                android:id="@+id/SelectAll"
+                android:layout_weight="50"
+                android:onClick="saveOnClick"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Niemand"
+                android:id="@+id/buttonLoad"
+                android:layout_weight="50"
+                android:onClick="loadOnClick"/>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speicher"
+            android:id="@+id/saveFilterData"
+            android:onClick="saveUserList" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Debug, add element"
+            android:id="@+id/debugAddElement"
+            android:onClick="addItems"/>
+
+    </LinearLayout>
+
+</ScrollView>
+

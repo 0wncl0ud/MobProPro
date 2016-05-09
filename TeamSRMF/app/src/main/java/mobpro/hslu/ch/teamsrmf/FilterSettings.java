@@ -5,15 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class FilterSettings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_filter_settings);
     }
-    public void saveOwnDataClicked(View v){
-        Intent filterSettingsActivity = new Intent(this, FilterSettings.class);
-        startActivity(filterSettingsActivity);
+
+
+    public void saveFilterData(View v){
+        Intent selectUser = new Intent(this, SelectUserActivity.class);
+        startActivity(selectUser);
     }
 }
