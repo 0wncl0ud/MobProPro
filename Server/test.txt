@@ -1,8 +1,19 @@
 {
-  "Name": "Manuel",
-  "Studiengang": "ET",
-  "Position": [
-    "x" : "12",
-    "y" : "13"
-  ]
+	"Benutzer": [{
+		"Name": "Manuel",
+		"Studiengang": "ET",
+		"Farbe": "rot",
+		"Position": [
+			"12",
+			"13"
+		]
+	}, {
+		"Name": "Silvan",
+		"Studiengang": "ET",
+		"Farbe": "rot",
+		"Position": [
+			"34",
+			"233"
+		]
+	}]
 }
