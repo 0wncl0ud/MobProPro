@@ -3,6 +3,7 @@
 		"Name": "Manuel",
 		"Studiengang": "ET",
 		"Farbe": "rot",
+		"TimeStamp": "Thu Sep 28 20:29:30",
 		"Position": [
 			"12",
 			"13"
@@ -10,6 +11,7 @@
 	}, {
 		"Name": "Silvan",
 		"Studiengang": "ET",
+		"TimeStamp": "Thu Sep 28 20:29:30",
 		"Farbe": "rot",
 		"Position": [
 			"34",

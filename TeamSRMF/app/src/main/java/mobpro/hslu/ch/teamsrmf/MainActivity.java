@@ -38,8 +38,6 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(tabDaten);
         tabHost.addTab(tabKarte);
         tabHost.addTab(tabFreunde);
-      //  Intent intent = new Intent(this, TCPClient.class);
-      //  startActivity(intent);
 
         TCPClient client = new TCPClient();
 //        while (!client.getState()){

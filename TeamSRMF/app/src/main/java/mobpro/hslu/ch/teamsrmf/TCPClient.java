@@ -2,7 +2,6 @@ package mobpro.hslu.ch.teamsrmf;
 
 
 import android.os.AsyncTask;
-import android.os.Bundle;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,7 +16,11 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Manuel on 03.05.2016.
@@ -80,11 +83,15 @@ public class TCPClient{
                 JSONObject json = new JSONObject(s);
                 JSONArray benutzer = json.getJSONArray("Benutzer");
                 for(int i = 0; i < benutzer.length(); i++){
+                    String date = benutzer.getJSONObject(i).getString("TimeStamp");
+                    DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss");
+                    Date result =  df.parse(date);
                     list.add(new Benutzer(benutzer.getJSONObject(i).getString("Name"),
                             benutzer.getJSONObject(i).getString("Studiengang"),
                             "rot",
                             Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(0)),
-                            Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(1))));
+                            Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(1)),
+                            result));
                 }
                 workDone = true;
             }
