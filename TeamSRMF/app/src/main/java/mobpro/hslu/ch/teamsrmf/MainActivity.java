@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TabHost;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends TabActivity {
 private TabHost tabHost;
@@ -41,7 +42,7 @@ private TabHost tabHost;
         tabHost.addTab(tabKarte);
         tabHost.addTab(tabFreunde);
 
-        TCPClient client = new TCPClient();
+
 
         //Welcher Tab soll angezeigt werden?
         Intent intent=getIntent();
@@ -54,6 +55,13 @@ private TabHost tabHost;
             }
         }catch (Exception e){
         }
+        /*
+        //-----------------------------TEST KOMUNIKATION-------------------------------------------
+        BenuterManager manager = new BenuterManager();
+        manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
+
+        //----------------------------------------------------------------------------------------------
+*/
 //        while (!client.getState()){
 //
 //      }
