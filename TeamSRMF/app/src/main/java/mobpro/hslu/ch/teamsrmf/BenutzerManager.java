@@ -56,6 +56,10 @@ public class BenutzerManager {
         return mMeineDaten;
     }
 
+    public void addmMeineFreunde(ArrayList<Benutzer> addList){
+        mMeineFreunde.addAll(addList);
+    }
+
 
     class DataLoader extends AsyncTask<Benutzer, Void, ArrayList<Benutzer>> {
         @Override

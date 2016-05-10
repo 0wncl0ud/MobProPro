@@ -14,13 +14,15 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class MainActivity extends TabActivity {
-private TabHost tabHost;
+    private TabHost tabHost;
+    public static BenutzerManager manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tabHost= (TabHost)findViewById(android.R.id.tabhost);
+        manager = new BenutzerManager();
+        tabHost = (TabHost) findViewById(android.R.id.tabhost);
 
 
         TabHost.TabSpec tabDaten = tabHost.newTabSpec("Meine Daten");
@@ -29,13 +31,13 @@ private TabHost tabHost;
 
 
         tabDaten.setIndicator("Meine Daten");
-        tabDaten.setContent(new Intent(this,MeineDaten.class));
+        tabDaten.setContent(new Intent(this, MeineDaten.class));
 
         tabKarte.setIndicator("Karte");
-        tabKarte.setContent(new Intent(this,Karte.class));
+        tabKarte.setContent(new Intent(this, Karte.class));
 
         tabFreunde.setIndicator("Freunde");
-        tabFreunde.setContent(new Intent(this,MeineFreunde.class));
+        tabFreunde.setContent(new Intent(this, MeineFreunde.class));
 
         /** Add the tabs  to the TabHost to display. */
         tabHost.addTab(tabDaten);
@@ -43,18 +45,18 @@ private TabHost tabHost;
         tabHost.addTab(tabFreunde);
 
 
-
         //Welcher Tab soll angezeigt werden?
-        Intent intent=getIntent();
+        Intent intent = getIntent();
         try {
             String indicator = intent.getExtras().getString("Tab");
-            if (indicator!=null){
-                Log.i("hslu_mobApp", "Indicator:" +indicator);
-                Parcelable[] temp=intent.getExtras().getParcelableArray("Benutzerliste");
+            if (indicator != null) {
+                Log.i("hslu_mobApp", "Indicator:" + indicator);
+                Parcelable[] temp = intent.getExtras().getParcelableArray("Benutzerliste");
                 tabHost.setCurrentTabByTag(indicator);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
         }
+
         /*
         //-----------------------------TEST KOMUNIKATION-------------------------------------------
         BenutzerManager manager = new BenutzerManager();
