@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by Manuel on 10.05.2016.
  */
-public class BenuterManager {
+public class BenutzerManager {
 
     private static final int SERVERPORT = 4711;
     private static final String SERVER_IP = "10.0.2.2";
@@ -21,7 +21,7 @@ public class BenuterManager {
     private DataLoader loader;
 
 
-    public  BenuterManager(){
+    public BenutzerManager(){
         mMeineFreunde = null;
         mMeineDaten = null;
         loader = new DataLoader();

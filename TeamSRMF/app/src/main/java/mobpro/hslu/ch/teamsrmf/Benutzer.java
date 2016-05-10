@@ -44,40 +44,40 @@ public class Benutzer implements java.io.Serializable {
 
     public String getSemester() { return mSemester; }
 
-    public void setName(String name, BenuterManager manager){
+    public void setName(String name, BenutzerManager manager){
         mOldName = mName;
         mName = name;
         manager.editUser(this);
     }
 
-    public void setStudienrichtung(String studienrichtung, BenuterManager manager){
+    public void setStudienrichtung(String studienrichtung, BenutzerManager manager){
         mOldName = mName;
         mStudienrichtung = studienrichtung;
         manager.editUser(this);
     }
-    public void setSemster(String semster, BenuterManager manager){
+    public void setSemster(String semster, BenutzerManager manager){
         mOldName = mName;
         mSemester = semster;
         manager.editUser(this);
     }
-    public void setFarbe(String farbe, BenuterManager manager){
+    public void setFarbe(String farbe, BenutzerManager manager){
         mOldName = mName;
         mFarbe = farbe;
         manager.editUser(this);
     }
-    public void setX(int x, BenuterManager manager){
+    public void setX(int x, BenutzerManager manager){
         mOldName = mName;
         mXposition = x;
         manager.editUser(this);
     }
 
-    public void setY(int y, BenuterManager manager){
+    public void setY(int y, BenutzerManager manager){
         mOldName = mName;
         mYposition = y;
         manager.editUser(this);
     }
 
-    public void setTimeStamp(Date date, BenuterManager manager){
+    public void setTimeStamp(Date date, BenutzerManager manager){
         mOldName = mName;
         mTimeStamp = date;
         manager.editUser(this);

@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:id="@android:id/tabhost">
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true">
 
-    <LinearLayout
-        android:id="@+id/LinearLayout01"
-        android:orientation="vertical"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent">
+    <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent">
-        </TabWidget>
-
-        <FrameLayout
-            android:id="@android:id/tabcontent"
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_width="fill_parent">
-        </FrameLayout>
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"></TabWidget>
 
-</TabHost>
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"></FrameLayout>
+        </LinearLayout>
+    </TabHost>
+</ScrollView>
