@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FilterSettings" />
         <activity android:name=".NeueFreunde" />
         <activity android:name=".TCPClient" />
         <activity android:name=".MeinePosition" />

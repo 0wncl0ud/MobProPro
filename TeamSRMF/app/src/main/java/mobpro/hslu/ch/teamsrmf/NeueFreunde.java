@@ -2,7 +2,9 @@ package mobpro.hslu.ch.teamsrmf;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,62 +21,75 @@ public class NeueFreunde extends Activity {
 
     ArrayAdapter<String> adapter;
     int clickCounter;
-    CheckedTextView myCheckedTextView;
-    ListView userListView;
-
+    private CheckedTextView myCheckedTextView;
+    private  ListView userListView;
+    private ArrayList<String> neueFreundeList = new ArrayList<String>();
+    protected ArrayList<Benutzer> neueFreundeListChecked = new ArrayList<Benutzer>();
+    private boolean selectedFlag=false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neue_freunde);
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
-        };
+        neueFreundeList.add("temp");        //// TODO: 10.05.2016 delete this und fülle die Daten aus dem Personen array ein, arbeite mit fillInData
+        //fillInData(getAllUsers);
         userListView=(ListView)findViewById(R.id.neueFreundeList);
         if(userListView!=null) {
-            adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_multichoice, android.R.id.text1, values);
+            adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_multichoice, android.R.id.text1, neueFreundeList);
             userListView.setAdapter(adapter);
         }
-       /* if(adapter.getCount()>5){
-            View item=adapter.getView(0,null,userListView);
-            item.measure(0,0);
-            ViewGroup.LayoutParams params=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,(int) (5.5 * item.getMeasuredHeight()));
-            userListView.setLayoutParams(params);
-        }*/
-
-       // myCheckedTextView.setText("Hallo, wähle mich");
-
-        //setListAdapter(adapter);
     }
 
-    /*public void addItems(View v) {
-        listItems.add(0,myCheckedTextView);
-        adapter.notifyDataSetChanged();
-    }*/
     public void AllClicked(View v){
-        //adapter.set
+        //// TODO: 10.05.2016 Markiere alle
     }
 
     public void NoneClicked(View v){
-
+        //// TODO: 10.05.2016 demarkiere alle
     }
+
+    public void wendeFilterAnClicked(View v){
+        //Todo  Wende den Filter an und gib die restlichen Objekte auf der Liste aus
+    }
+
+    public void AbbrechenNeueFreundeClicked(View v){
+        Intent mainActivity = new Intent(this, MainActivity.class);
+        mainActivity.putExtra("Tab","Freunde");
+        startActivity(mainActivity);
+    }
+
 
     public void speicherBenutzerListeClicked(View v){
         SparseBooleanArray checked = userListView.getCheckedItemPositions();
-        TextView selectedItems=(TextView)findViewById(R.id.SelectedItems);
         for (int i = 0; i < checked.size(); i++) {
-            // Item position in adapter
             int position = checked.keyAt(i);
-            // Add sport if it is checked i.e.) == TRUE!
-            if (checked.valueAt(i))
-                //selectedItems.setText(adapter.getItem(position));     //DEbugAusgabe
+            if (checked.valueAt(i)){
+                       //TODO     suche Objekt adapter.getItem(position))
+                    //neueFreundeListChecked.add(   //// TODO: 10.05.2016 füge objekt der liste hinzu
+            }
+        }
+        Intent mainActivity = new Intent(this, MainActivity.class);
+        mainActivity.putExtra("Tab","Freunde");
+        mainActivity.putExtra("Benutzerliste",neueFreundeListChecked);
+        startActivity(mainActivity);
+    }
+
+    private void fillInData(ArrayList<Benutzer> benutzerListe){
+        for (Benutzer tempBenutzer : benutzerListe){
+            neueFreundeList.add(tempBenutzer.getName());
         }
     }
+
+    public ArrayList<Benutzer> getSelctedData(){
+        if (selectedFlag==true){
+            selectedFlag=false;
+           return neueFreundeListChecked;
+        }
+        else{
+            return null;
+        }
+    }
+    
+    
 }

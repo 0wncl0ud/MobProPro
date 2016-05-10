@@ -2,9 +2,13 @@ package mobpro.hslu.ch.teamsrmf;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import java.util.ArrayList;
 
 public class MeineFreunde extends AppCompatActivity {
 
@@ -13,6 +17,7 @@ public class MeineFreunde extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meine_freunde);
     }
+
 
     public void löscheFreundeClicked(View v){
         //// TODO: 09.05.2016 lösche hier die markierten freunde

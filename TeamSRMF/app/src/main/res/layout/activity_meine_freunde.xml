@@ -9,7 +9,6 @@
     android:layout_alignParentTop="true"
     android:layout_centerHorizontal="true"
     >
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -23,6 +22,24 @@
             android:id="@+id/TxtStudienrichtung"
             android:textSize="30dp"
             android:singleLine="false" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:dividerHeight="1dp"
+                android:id="@+id/neueFreundeList"
+                android:drawSelectorOnTop="true"
+                android:layout_gravity="center_horizontal"
+                android:choiceMode="multipleChoice"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:fastScrollAlwaysVisible="false"
+                android:fastScrollEnabled="false" />
+        </LinearLayout>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

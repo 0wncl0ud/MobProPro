@@ -2,22 +2,24 @@ package mobpro.hslu.ch.teamsrmf;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TabHost;
 
 import java.util.ArrayList;
 
 public class MainActivity extends TabActivity {
-
+private TabHost tabHost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
+        tabHost= (TabHost)findViewById(android.R.id.tabhost);
 
 
         TabHost.TabSpec tabDaten = tabHost.newTabSpec("Meine Daten");
@@ -40,15 +42,21 @@ public class MainActivity extends TabActivity {
         tabHost.addTab(tabFreunde);
 
         TCPClient client = new TCPClient();
+
+        //Welcher Tab soll angezeigt werden?
+        Intent intent=getIntent();
+        try {
+            String indicator = intent.getExtras().getString("Tab");
+            if (indicator!=null){
+                Log.i("hslu_mobApp", "Indicator:" +indicator);
+                Parcelable[] temp=intent.getExtras().getParcelableArray("Benutzerliste");
+                tabHost.setCurrentTabByTag(indicator);
+            }
+        }catch (Exception e){
+        }
 //        while (!client.getState()){
 //
 //      }
 //        ArrayList<Benutzer> benutzers = client.getListOfBenutzer();
-
     }
-    public void saveOwnDataClicked(View v){
-        Intent filterSettingsActivity = new Intent(this, FilterSettings.class);
-        startActivity(filterSettingsActivity);
-    }
-
 }
