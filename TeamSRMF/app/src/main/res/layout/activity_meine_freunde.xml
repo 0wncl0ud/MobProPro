@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Meine Freunde"
-            android:id="@+id/TxtStudienrichtung"
+            android:id="@+id/TxtMeineFreunde"
             android:textSize="30dp"
             android:singleLine="false" />
         <LinearLayout
@@ -29,7 +29,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="250dp"
                 android:dividerHeight="1dp"
-                android:id="@+id/neueFreundeList"
+                android:id="@+id/freundeList"
                 android:drawSelectorOnTop="true"
                 android:layout_gravity="center_horizontal"
                 android:choiceMode="multipleChoice"

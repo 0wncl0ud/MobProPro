@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Manuel on 10.05.2016.
@@ -15,14 +16,17 @@ public class BenutzerManager {
     private static final int SERVERPORT = 4711;
     private static final String SERVER_IP = "10.0.2.2";
 
-    private ArrayList<Benutzer> mMeineFreunde, mDatenbank;
-    private Benutzer mMeineDaten;
-    private Socket socket;
-    private DataLoader loader;
+    private static ArrayList<Benutzer> mMeineFreunde, mDatenbank;
+    private static Benutzer mMeineDaten;
+    private static Socket socket;
+    private static DataLoader loader;
 
 
     public BenutzerManager(){
-        mMeineFreunde = null;
+        if(mMeineFreunde==null){
+            mMeineFreunde=new ArrayList<>();
+        }
+       // mMeineFreunde = null;     //löschte die Array Liste!
         mMeineDaten = null;
         loader = new DataLoader();
         //TODO wait until finish
@@ -58,6 +62,28 @@ public class BenutzerManager {
 
     public void addmMeineFreunde(ArrayList<Benutzer> addList){
         mMeineFreunde.addAll(addList);
+    }
+
+    public ArrayList<Benutzer> convertStringToBenutzer(ArrayList<String> nameList, ArrayList<Benutzer> benutzerList){
+        ArrayList<Benutzer> checkedBenutzerList=new ArrayList<>();
+        if (benutzerList != null) {
+            for (Benutzer benutzer : benutzerList) {
+                if (nameList.contains(benutzer.getName())) {
+                    checkedBenutzerList.add(benutzer);
+                }
+            }
+        }
+        return checkedBenutzerList;
+    }
+
+    public ArrayList<String> convertBenutzerToString(ArrayList<Benutzer> benutzerList) {
+        ArrayList<String> nameList = new ArrayList<String>();
+        if (benutzerList != null) {
+            for (Benutzer benutzer : benutzerList) {
+                nameList.add(benutzer.getName());
+            }
+        }
+        return nameList;
     }
 
 
