@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FilterSettings" />
-        <activity android:name=".SelectUserActivity" />
+        <activity android:name=".NeueFreunde" />
         <activity android:name=".TCPClient" />
         <activity android:name=".MeinePosition" />
         <activity android:name=".MeineFreunde" />
