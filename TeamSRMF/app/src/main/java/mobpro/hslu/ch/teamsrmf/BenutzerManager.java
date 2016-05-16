@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Manuel on 10.05.2016.
@@ -21,41 +20,45 @@ public class BenutzerManager {
     private static Benutzer mMeineDaten;
     private static Socket socket;
     private static DataLoader loader;
+    private static boolean mBusy;
 
 
     private BenutzerManager(){
-        if(mMeineFreunde==null){
-            mMeineFreunde=new ArrayList<>();
-        }
-       // mMeineFreunde = null;     //löschte die Array Liste!
-        if(mMeineDaten==null) {
-            mMeineDaten = null;
-        }
+        mMeineFreunde=new ArrayList<>();
+        mMeineDaten = null;
+        mBusy = false;
         loader = new DataLoader();
         //TODO wait until finish
     }
 
+
     public static BenutzerManager getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new BenutzerManager();
         }
         return instance;
     }
 
+    public boolean getBusy(){
+        return mBusy;
+    }
+
 
     public void addUser(Benutzer user){
+        mBusy = true;
         loader.execute(user);
-    }
+   }
 
     public void editUser(Benutzer user){
         mMeineDaten=user;
+        mBusy = true;
         loader.execute(user);
     }
 
     public ArrayList<Benutzer> loadList(){
+        mBusy = true;
         Benutzer dummy = null;
         loader.execute(dummy);
-        //TODO make some sleep while loading data
         return mDatenbank;
     }
 
@@ -98,10 +101,11 @@ public class BenutzerManager {
     }
 
 
-    class DataLoader extends AsyncTask<Benutzer, Void, ArrayList<Benutzer>> {
+    class DataLoader extends AsyncTask<Benutzer, Void, Boolean> {
         @Override
-        protected ArrayList<Benutzer> doInBackground(Benutzer... params) {
+        protected Boolean doInBackground(Benutzer... params) {
             ArrayList<Benutzer> received = null;
+            mBusy = true;
             try {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 socket = new Socket(serverAddr, SERVERPORT);
@@ -118,14 +122,14 @@ public class BenutzerManager {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return received;
+            mDatenbank = received;
+            return false;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<Benutzer> user) {
-            super.onPostExecute(user);
-
-            mDatenbank = user;
+        protected void onPostExecute(Boolean user) {
+            mBusy = user;
+            //TODO methode wird nicht aufgerufen!!!
         }
     }
 }

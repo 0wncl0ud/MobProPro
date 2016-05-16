@@ -72,7 +72,7 @@ public class FileHandler {
             jsonObject = new JSONObject(stringBuilder.toString());
             
             //Debug print out json from file
-            System.out.print("[DEBUG]Read from File" + jsonObject + "\n");
+            //System.out.print("[DEBUG]Read from File" + jsonObject + "\n");
             //jsonObject.writeJSONString(out);            
         } catch(IOException | JSONException ex){
             System.out.print(ex.getMessage());
