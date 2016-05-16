@@ -56,10 +56,13 @@ public class MainActivity extends TabActivity {
             }
         } catch (Exception e) {
         }
-        
+
         //-----------------------------TEST KOMUNIKATION-------------------------------------------
         //BenutzerManager manager = new BenutzerManager();
         //manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
+        //while (manager.getBusy()){
+
+        //}
         //ArrayList<Benutzer> database = manager.getmDatenbank();
 
         //----------------------------------------------------------------------------------------------

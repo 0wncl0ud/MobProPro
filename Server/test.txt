@@ -4,7 +4,7 @@
 		"Studiengang": "ET",
 		"Farbe": "rot",
 		"Semester": "2",
-		"TimeStamp": "Mon May 16 16:06:18 CEST 2016",
+		"TimeStamp": "Thu Sep 28 20:29:30",
 		"Position": [
 			"12",
 			"13"
@@ -12,22 +12,12 @@
 	}, {
 		"Name": "Silvan",
 		"Studiengang": "ET",
-		"Farbe": "rot",
 		"Semester": "2",
-		"TimeStamp": "Mon May 16 16:06:22 CEST 2016",
+		"TimeStamp": "Thu Sep 28 20:29:30",
+		"Farbe": "rot",
 		"Position": [
 			"34",
 			"233"
-		]
-	}, {
-		"Name": "Manuel Felber",
-		"Studiengang": "ET",
-		"Farbe": "blau",
-		"Semester": "5",
-		"TimeStamp": "Mon May 16 16:05:06 CEST 2016",
-		"Position": [
-			"12",
-			"345"
 		]
 	}]
 }

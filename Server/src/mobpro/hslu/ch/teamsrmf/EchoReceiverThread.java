@@ -27,7 +27,7 @@ public class EchoReceiverThread extends Thread {
 		while (tcpSocket != null) { 
 			// loop untill exit received
 			try {
-                            System.out.println("[DEBUG] " + address + " wait for request ....");    
+                            //System.out.println("[DEBUG] " + address + " wait for request ....");    
                             ObjectInputStream inObj = new ObjectInputStream(tcpSocket.getInputStream());
                             ObjectOutputStream outObj = new ObjectOutputStream(tcpSocket.getOutputStream());
                             
