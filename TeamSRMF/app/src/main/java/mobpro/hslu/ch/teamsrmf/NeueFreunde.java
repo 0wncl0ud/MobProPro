@@ -1,21 +1,16 @@
 package mobpro.hslu.ch.teamsrmf;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.SparseBooleanArray;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class NeueFreunde extends Activity {
 
@@ -23,8 +18,9 @@ public class NeueFreunde extends Activity {
     int clickCounter;
     private CheckedTextView myCheckedTextView;
     private  ListView userListView;
-    private ArrayList<String> neueFreundeList = new ArrayList<String>();
-    protected ArrayList<Benutzer> neueFreundeListChecked = new ArrayList<Benutzer>();
+    private ArrayList<String> neueFreundeStringList = new ArrayList<String>();
+    private ArrayList<Benutzer> neueFreundeList = new ArrayList<Benutzer>();
+    protected ArrayList<String> neueFreundeStringListChecked = new ArrayList<String>();
     private boolean selectedFlag=false;
 
 
@@ -32,17 +28,29 @@ public class NeueFreunde extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neue_freunde);
-        neueFreundeList.add("temp");        //// TODO: 10.05.2016 delete this und fülle die Daten aus dem Personen array ein, arbeite mit fillInData
-        //fillInData(getAllUsers);
+
+        //--------DEBUG-----
+        Benutzer dummy1=new Benutzer("Dummy1", "Elektrotechnik", "2","blue", 200, 100, new Date());
+        Benutzer dummy2=new Benutzer("Dummy2", "Elektrotechnik", "2","blue", 200, 100, new Date());
+        Benutzer dummy3=new Benutzer("Dummy3", "Elektrotechnik", "2","blue", 200, 100, new Date());
+        //getList()
+        neueFreundeList.add(dummy1);
+        neueFreundeList.add(dummy2);
+        neueFreundeList.add(dummy3);
+
+        neueFreundeStringList=MainActivity.manager.convertBenutzerToString(neueFreundeList);
         userListView=(ListView)findViewById(R.id.neueFreundeList);
         if(userListView!=null) {
-            adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_multichoice, android.R.id.text1, neueFreundeList);
+            adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_multichoice, android.R.id.text1, neueFreundeStringList);
             userListView.setAdapter(adapter);
         }
     }
 
+
+
     public void AllClicked(View v){
         //// TODO: 10.05.2016 Markiere alle
+
     }
 
     public void NoneClicked(View v){
@@ -65,31 +73,15 @@ public class NeueFreunde extends Activity {
         for (int i = 0; i < checked.size(); i++) {
             int position = checked.keyAt(i);
             if (checked.valueAt(i)){
-                       //TODO     suche Objekt adapter.getItem(position))
-                    //neueFreundeListChecked.add(   //// TODO: 10.05.2016 füge objekt der liste hinzu
+                neueFreundeStringListChecked.add(adapter.getItem(position));
             }
         }
+        MainActivity.manager.addmMeineFreunde(MainActivity.manager.convertStringToBenutzer(neueFreundeStringListChecked,neueFreundeList));
         Intent mainActivity = new Intent(this, MainActivity.class);
         mainActivity.putExtra("Tab","Freunde");
-        mainActivity.putExtra("Benutzerliste",neueFreundeListChecked);
         startActivity(mainActivity);
     }
 
-    private void fillInData(ArrayList<Benutzer> benutzerListe){
-        for (Benutzer tempBenutzer : benutzerListe){
-            neueFreundeList.add(tempBenutzer.getName());
-        }
-    }
-
-    public ArrayList<Benutzer> getSelctedData(){
-        if (selectedFlag==true){
-            selectedFlag=false;
-           return neueFreundeListChecked;
-        }
-        else{
-            return null;
-        }
-    }
     
     
 }

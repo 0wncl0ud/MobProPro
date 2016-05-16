@@ -14,19 +14,26 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1">
+        android:weightSum="100">
 
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="85"
+            android:id="@+id/imageViewMeinePosition" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nicht mehr da"
+            android:layout_weight="5"
             android:id="@+id/nichtMehrDa"
             android:onClick="NichtMehrDaClicked" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="5"
             android:text="Speichere meine Position"
             android:id="@+id/speichereMeinePosition"
             android:onClick="speichereMeinePositionClicked" />
@@ -35,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Abbrechen"
+            android:layout_weight="5"
             android:id="@+id/abbrechenMeinePosition"
             android:onClick="abbrechenClicked" />
     </LinearLayout>
