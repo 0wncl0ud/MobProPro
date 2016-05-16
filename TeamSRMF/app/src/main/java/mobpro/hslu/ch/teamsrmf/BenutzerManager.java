@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class BenutzerManager {
 
+    private static BenutzerManager instance;
     private static final int SERVERPORT = 4711;
     private static final String SERVER_IP = "10.0.2.2";
 
@@ -22,14 +23,23 @@ public class BenutzerManager {
     private static DataLoader loader;
 
 
-    public BenutzerManager(){
+    private BenutzerManager(){
         if(mMeineFreunde==null){
             mMeineFreunde=new ArrayList<>();
         }
        // mMeineFreunde = null;     //löschte die Array Liste!
-        mMeineDaten = null;
+        if(mMeineDaten==null) {
+            mMeineDaten = null;
+        }
         loader = new DataLoader();
         //TODO wait until finish
+    }
+
+    public static BenutzerManager getInstance() {
+        if(instance == null) {
+            instance = new BenutzerManager();
+        }
+        return instance;
     }
 
 
@@ -38,6 +48,7 @@ public class BenutzerManager {
     }
 
     public void editUser(Benutzer user){
+        mMeineDaten=user;
         loader.execute(user);
     }
 

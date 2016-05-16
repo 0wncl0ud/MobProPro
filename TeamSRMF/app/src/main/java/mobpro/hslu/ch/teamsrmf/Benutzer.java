@@ -113,13 +113,13 @@ public class Benutzer implements java.io.Serializable {
     public void setX(int x, BenutzerManager manager){
         mOldName = mName;
         mXposition = x;
-        manager.editUser(this);
+        MainActivity.manager.editUser(this);
     }
 
     public void setY(int y, BenutzerManager manager){
         mOldName = mName;
         mYposition = y;
-        manager.editUser(this);
+        MainActivity.manager.editUser(this);
     }
 
     public void setTimeStamp(Date date, BenutzerManager manager){
