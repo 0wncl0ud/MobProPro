@@ -56,11 +56,7 @@ public class MainActivity extends TabActivity {
             }
         } catch (Exception e) {
         }
-
-<<<<<<< HEAD
-=======
-        /*
->>>>>>> 169089fae9cfe9a1fe295aea63ef4f303dc306e9
+        
         //-----------------------------TEST KOMUNIKATION-------------------------------------------
         //BenutzerManager manager = new BenutzerManager();
         //manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
