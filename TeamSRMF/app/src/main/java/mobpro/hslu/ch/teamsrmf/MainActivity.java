@@ -55,13 +55,14 @@ private TabHost tabHost;
             }
         }catch (Exception e){
         }
-        /*
+
         //-----------------------------TEST KOMUNIKATION-------------------------------------------
-        BenutzerManager manager = new BenutzerManager();
-        manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
+        //BenutzerManager manager = new BenutzerManager();
+        //manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
+        //ArrayList<Benutzer> database = manager.getmDatenbank();
 
         //----------------------------------------------------------------------------------------------
-*/
+
 //        while (!client.getState()){
 //
 //      }

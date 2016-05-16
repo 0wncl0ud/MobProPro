@@ -1,4 +1,4 @@
-package ch.hslu.mobile.android.server.socket;
+package mobpro.hslu.ch.teamsrmf;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

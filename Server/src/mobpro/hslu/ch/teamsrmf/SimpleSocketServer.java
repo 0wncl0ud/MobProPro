@@ -1,4 +1,4 @@
-package ch.hslu.mobile.android.server.socket;
+package mobpro.hslu.ch.teamsrmf;
 
 import java.net.ServerSocket;
 import java.net.Socket;

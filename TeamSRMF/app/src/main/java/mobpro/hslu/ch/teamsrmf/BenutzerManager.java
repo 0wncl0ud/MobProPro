@@ -65,13 +65,15 @@ public class BenutzerManager {
                 InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
                 socket = new Socket(serverAddr, SERVERPORT);
                 ObjectOutputStream outObj = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream inObj = new ObjectInputStream(socket.getInputStream());
+                //send Benutzer Object
                 outObj.writeObject(params[0]);
                 outObj.flush();
-                outObj.close();
-
-                ObjectInputStream inObj = new ObjectInputStream(socket.getInputStream());
+                //receive ArrayList of Benutzer
                 received = (ArrayList<Benutzer>) inObj.readObject();
+
                 inObj.close();
+                outObj.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
