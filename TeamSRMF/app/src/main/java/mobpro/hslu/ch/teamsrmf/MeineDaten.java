@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Date;
+
 public class MeineDaten extends Activity {
 
     @Override
@@ -17,9 +19,7 @@ public class MeineDaten extends Activity {
 
     public void saveOwnDataClicked(View v){
         //// TODO: 17.05.2016 fülle eigener Benutzer ab
-        findViewById(R.id.)
-        Benutzer newUser = Benutzer();
-        MainActivity.manager.addUser(newUser);
+        BenutzerManager.getInstance().addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Freunde");
     }

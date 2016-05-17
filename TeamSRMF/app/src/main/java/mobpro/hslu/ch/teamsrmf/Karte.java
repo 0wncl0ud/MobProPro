@@ -22,7 +22,12 @@ public class Karte extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_karte);
-        freundeList=MainActivity.manager.getMeineFreunde();
+        setPicture();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         setPicture();
     }
 
@@ -30,11 +35,12 @@ public class Karte extends AppCompatActivity {
         Bitmap bmpMensaPlan = BitmapFactory.decodeResource(getResources(), R.drawable.mensaplan);
         Bitmap mutableBitmap = bmpMensaPlan.copy(Bitmap.Config.ARGB_8888, true);
         ImageView imVmensaplan=(ImageView)findViewById(R.id.imageView);
-
+        freundeList=MainActivity.manager.getmViewFreunde();
         Canvas canvas = new Canvas(mutableBitmap);
         for (Benutzer freund:freundeList){
             canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition());
         }
+        imVmensaplan.setImageDrawable(null);
         imVmensaplan.setImageDrawable(new BitmapDrawable(getResources(),mutableBitmap));
     }
 
