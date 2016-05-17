@@ -37,12 +37,7 @@ public class MeineDaten extends Activity {
     }
 
     public void saveOwnDataClicked(View v){
-<<<<<<< HEAD
         saveData();
-=======
-        //// TODO: 17.05.2016 fülle eigener Benutzer ab
-        BenutzerManager.getInstance().addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
->>>>>>> f4989a479fe868d5457e8f2860ff68d264287c47
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Freunde");
     }
