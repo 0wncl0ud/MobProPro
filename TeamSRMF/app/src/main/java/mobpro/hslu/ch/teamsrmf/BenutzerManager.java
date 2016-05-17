@@ -19,7 +19,6 @@ public class BenutzerManager {
     private static ArrayList<Benutzer> mMeineFreunde, mDatenbank;
     private static Benutzer mMeineDaten;
     private static Socket socket;
-    private static DataLoader loader;
     private static boolean mBusy;
 
 
@@ -27,7 +26,6 @@ public class BenutzerManager {
         mMeineFreunde=new ArrayList<>();
         mMeineDaten = null;
         mBusy = false;
-        loader = new DataLoader();
         //TODO wait until finish
     }
 
@@ -46,19 +44,19 @@ public class BenutzerManager {
 
     public void addUser(Benutzer user){
         mBusy = true;
-        loader.execute(user);
+        new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
    }
 
     public void editUser(Benutzer user){
         mMeineDaten=user;
         mBusy = true;
-        loader.execute(user);
+        new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
     }
 
     public ArrayList<Benutzer> loadList(){
         mBusy = true;
         Benutzer dummy = null;
-        loader.execute(dummy);
+        new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, dummy);
         return mDatenbank;
     }
 
@@ -128,7 +126,7 @@ public class BenutzerManager {
 
         @Override
         protected void onPostExecute(Boolean user) {
-            mBusy = user;
+            mBusy = false;
             //TODO methode wird nicht aufgerufen!!!
         }
     }
