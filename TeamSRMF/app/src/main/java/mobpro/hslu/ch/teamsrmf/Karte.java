@@ -14,12 +14,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-public class Karte extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class Karte extends AppCompatActivity {
+    private ArrayList<Benutzer> freundeList = new ArrayList<Benutzer>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_karte);
+        freundeList=MainActivity.manager.getMeineFreunde();
         setPicture();
     }
 
@@ -29,21 +32,16 @@ public class Karte extends AppCompatActivity {
         ImageView imVmensaplan=(ImageView)findViewById(R.id.imageView);
 
         Canvas canvas = new Canvas(mutableBitmap);
-        canvas=addNewMarker(canvas);
-
+        for (Benutzer freund:freundeList){
+            canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition());
+        }
         imVmensaplan.setImageDrawable(new BitmapDrawable(getResources(),mutableBitmap));
     }
 
-    Canvas addNewMarker(Canvas canvas){
-       /* Bitmap marker = BitmapFactory.decodeResource(getResources(), R.drawable.search_marker2);
-        Paint mPaint = new Paint();
-        ColorFilter filter = new LightingColorFilter(Color.BLUE, 2);
-        mPaint.setColorFilter(filter);
-        mPaint.setColor(Color.GREEN);
-        canvas.drawBitmap(marker, 40, 40, null);*/
+    Canvas addNewMarker(Canvas canvas,int posX, int posY){
         Paint mPaint = new Paint();
         mPaint.setColor(Color.RED);
-        canvas.drawCircle(60, 60, 15, mPaint);
+        canvas.drawCircle(posX, posY, 15, mPaint);
         return canvas;
     }
 }

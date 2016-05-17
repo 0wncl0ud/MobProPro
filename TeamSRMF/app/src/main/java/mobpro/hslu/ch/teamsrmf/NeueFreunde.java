@@ -31,8 +31,8 @@ public class NeueFreunde extends Activity {
 
         //--------DEBUG-----
         Benutzer dummy1=new Benutzer("Dummy1", "Elektrotechnik", "2","blue", 200, 100, new Date());
-        Benutzer dummy2=new Benutzer("Dummy2", "Elektrotechnik", "2","blue", 200, 100, new Date());
-        Benutzer dummy3=new Benutzer("Dummy3", "Elektrotechnik", "2","blue", 200, 100, new Date());
+        Benutzer dummy2=new Benutzer("Dummy2", "Elektrotechnik", "2","blue", 250, 100, new Date());
+        Benutzer dummy3=new Benutzer("Dummy3", "Elektrotechnik", "2","blue", 300, 100, new Date());
         //getList()
         neueFreundeList.add(dummy1);
         neueFreundeList.add(dummy2);
