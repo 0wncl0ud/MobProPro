@@ -41,7 +41,8 @@ public class BenutzerManager {
     private static Socket socket;
     private static boolean mBusy;
 
-    private String mFileName;
+    private String mBenutzerFileName;
+    private String mFreundeFileName;
     private static Context context;
 
 
@@ -50,11 +51,17 @@ public class BenutzerManager {
         mViewFreunde=new ArrayList<>();
         mMeineDaten = null;
         mBusy = false;
-        mFileName="Benutzer.txt";
-        ArrayList<Benutzer> tempList=parseToList(readFromFile(context.getFilesDir().getPath()));
+        mBenutzerFileName="Benutzer.txt";
+        mFreundeFileName="Freunde.txt";
+        ArrayList<Benutzer> tempList=parseToList(readFromFile(context.getFilesDir().getPath(),mBenutzerFileName));
         if(!tempList.isEmpty()) {
             mMeineDaten = tempList.get(0);
         }
+        tempList=parseToList(readFromFile(context.getFilesDir().getPath(),mFreundeFileName));
+        if(!tempList.isEmpty()) {
+            mMeineFreunde.addAll(tempList);
+        }
+
         //TODO wait until finish
     }
 
@@ -83,7 +90,7 @@ public class BenutzerManager {
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
         ArrayList<Benutzer> temp= new ArrayList<Benutzer>();
         temp.add(mMeineDaten);
-        saveToFile(temp,context.getFilesDir().getPath());
+        saveToFile(temp,context.getFilesDir().getPath(),mBenutzerFileName);
     }
 
     public ArrayList<Benutzer> loadList(){
@@ -115,10 +122,12 @@ public class BenutzerManager {
 
     public void addmMeineFreunde(ArrayList<Benutzer> addList){
         mMeineFreunde=mergeUserList(mMeineFreunde,addList);
+        saveToFile(mMeineFreunde,context.getFilesDir().getPath(),mFreundeFileName);
     }
 
     public void löschemMeineFreunde(ArrayList<Benutzer> löschList){
         mMeineFreunde=löscheUserList(mMeineFreunde,löschList);
+        saveToFile(mMeineFreunde,context.getFilesDir().getPath(),mFreundeFileName);
     }
 
     public ArrayList<Benutzer> convertStringToBenutzer(ArrayList<String> nameList, ArrayList<Benutzer> benutzerList){
@@ -211,7 +220,7 @@ public class BenutzerManager {
         }
     }
 
-    public void saveToFile(ArrayList<Benutzer> list,String path){
+    public void saveToFile(ArrayList<Benutzer> list,String path,String fileName){
         StringBuilder data = new StringBuilder();
         data.append("{\n\t\"Benutzer\": [{\n");
         for(int i=0; i < list.size(); i++){
@@ -229,7 +238,7 @@ public class BenutzerManager {
         }
         data.append("\t}]\n");
         data.append("}");
-        File fileBenutzer=new File(path,mFileName);
+        File fileBenutzer=new File(path,fileName);
         try{
             Writer writer = new BufferedWriter(new FileWriter(fileBenutzer));
             writer.write(data.toString());
@@ -241,10 +250,10 @@ public class BenutzerManager {
     }
 
 
-    public JSONObject readFromFile(String path){
+    public JSONObject readFromFile(String path,String fileName){
         JSONObject jsonObject=new JSONObject();
         try{
-            File fileBenutzer = new File(path,mFileName);
+            File fileBenutzer = new File(path,fileName);
             BufferedReader reader = new BufferedReader(new FileReader(fileBenutzer));
             String line = null;
             StringBuilder stringBuilder = new StringBuilder();
