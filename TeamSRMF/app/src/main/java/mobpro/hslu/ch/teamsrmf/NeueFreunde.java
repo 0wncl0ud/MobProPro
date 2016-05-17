@@ -36,6 +36,7 @@ public class NeueFreunde extends Activity {
         neueFreundeList.add(dummy1);
         neueFreundeList.add(dummy2);
         neueFreundeList.add(dummy3);
+        neueFreundeList=MainActivity.manager.getmDatenbank();
 
         neueFreundeStringList=MainActivity.manager.convertBenutzerToString(neueFreundeList);
         userListView=(ListView)findViewById(R.id.neueFreundeList);

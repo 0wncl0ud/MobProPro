@@ -39,6 +39,7 @@ public class MeineFreunde extends AppCompatActivity {
                 freundeStringListChecked.add(adapter.getItem(position));
             }
         }
+        ////TODO freundliste aktuallisieren mit aktuellerliste
         MainActivity.manager.löschemMeineFreunde(MainActivity.manager.convertStringToBenutzer(freundeStringListChecked,freundeList));
         setListe();
     }
