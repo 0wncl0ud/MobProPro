@@ -1,6 +1,7 @@
 package mobpro.hslu.ch.teamsrmf;
 
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MeineFreunde extends AppCompatActivity {
     private ArrayList<String> freundeStringList = new ArrayList<String>();
@@ -19,11 +21,13 @@ public class MeineFreunde extends AppCompatActivity {
     private  ListView meinFreundeListView;
     ArrayAdapter<String> adapter;
     private BenutzerManager manager;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meine_freunde);
+        context=getApplicationContext();
         //freundeStringList.add("Hallo");
         setListe();
     }
@@ -47,7 +51,7 @@ public class MeineFreunde extends AppCompatActivity {
         freundeList=MainActivity.manager.getMeineFreunde();
         freundeStringList=MainActivity.manager.convertBenutzerToString(freundeList);
         meinFreundeListView=(ListView)findViewById(R.id.freundeListView);
-        manager=BenutzerManager.getInstance();
+        manager=BenutzerManager.getInstance(context);
         if(meinFreundeListView!=null) {
             adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_multichoice, android.R.id.text1, freundeStringList);
             meinFreundeListView.setAdapter(adapter);

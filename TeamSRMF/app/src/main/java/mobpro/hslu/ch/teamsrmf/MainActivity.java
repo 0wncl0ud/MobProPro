@@ -21,7 +21,7 @@ public class MainActivity extends TabActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        manager=BenutzerManager.getInstance();
+        manager=BenutzerManager.getInstance(getApplicationContext());
         tabHost = (TabHost) findViewById(android.R.id.tabhost);
 
 
