@@ -16,7 +16,7 @@ public class BenutzerManager {
     private static final int SERVERPORT = 4711;
     private static final String SERVER_IP = "10.0.2.2";
 
-    private static ArrayList<Benutzer> mMeineFreunde, mDatenbank;
+    private static ArrayList<Benutzer> mMeineFreunde,mViewFreunde, mDatenbank;
     private static Benutzer mMeineDaten;
     private static Socket socket;
     private static boolean mBusy;
@@ -24,6 +24,7 @@ public class BenutzerManager {
 
     private BenutzerManager(){
         mMeineFreunde=new ArrayList<>();
+        mViewFreunde=new ArrayList<>();
         mMeineDaten = null;
         mBusy = false;
         //TODO wait until finish
@@ -71,8 +72,20 @@ public class BenutzerManager {
         return mMeineDaten;
     }
 
+    public ArrayList<Benutzer> getmViewFreunde(){
+        return mViewFreunde;
+    }
+
+    public void setmViewFreunde(ArrayList<Benutzer> neueViewList){
+        mViewFreunde=neueViewList;
+    }
+
     public void addmMeineFreunde(ArrayList<Benutzer> addList){
-        mMeineFreunde.addAll(addList);
+        mMeineFreunde=mergeUserList(mMeineFreunde,addList);
+    }
+
+    public void löschemMeineFreunde(ArrayList<Benutzer> löschList){
+        mMeineFreunde=löscheUserList(mMeineFreunde,löschList);
     }
 
     public ArrayList<Benutzer> convertStringToBenutzer(ArrayList<String> nameList, ArrayList<Benutzer> benutzerList){
@@ -85,6 +98,42 @@ public class BenutzerManager {
             }
         }
         return checkedBenutzerList;
+    }
+
+    public ArrayList<Benutzer> mergeUserList(ArrayList<Benutzer> liste1, ArrayList<Benutzer> liste2){
+        if (!liste1.isEmpty()) {
+            if(!liste2.isEmpty()) {
+                for (Benutzer benutzer2 : liste2) {
+                    for (Benutzer benutzer1 : liste1) {
+                        if (benutzer1.getName().equals(benutzer2.getName())) {
+                            liste1.remove(benutzer1);
+                            break;
+                        }
+                    }
+                    liste1.add(benutzer2);
+                }
+            }
+        }
+        else{
+            liste1=liste2;
+        }
+        return liste1;
+    }
+
+    public ArrayList<Benutzer> löscheUserList(ArrayList<Benutzer> vorgabeListe, ArrayList<Benutzer> löschListe){
+        if (!vorgabeListe.isEmpty()) {
+            if(!vorgabeListe.isEmpty()) {
+                for (Benutzer benutzer2 : löschListe) {
+                    for (Benutzer benutzer1 : vorgabeListe) {
+                        if (benutzer1.getName().equals(benutzer2.getName())) {
+                            vorgabeListe.remove(benutzer1);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return vorgabeListe;
     }
 
     public ArrayList<String> convertBenutzerToString(ArrayList<Benutzer> benutzerList) {

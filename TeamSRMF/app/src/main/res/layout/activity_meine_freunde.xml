@@ -29,7 +29,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="250dp"
                 android:dividerHeight="1dp"
-                android:id="@+id/freundeList"
+                android:id="@+id/freundeListView"
                 android:drawSelectorOnTop="true"
                 android:layout_gravity="center_horizontal"
                 android:choiceMode="multipleChoice"

@@ -20,7 +20,6 @@ public class NeueFreunde extends Activity {
     private  ListView userListView;
     private ArrayList<String> neueFreundeStringList = new ArrayList<String>();
     private ArrayList<Benutzer> neueFreundeList = new ArrayList<Benutzer>();
-    protected ArrayList<String> neueFreundeStringListChecked = new ArrayList<String>();
     private boolean selectedFlag=false;
 
 
@@ -69,6 +68,7 @@ public class NeueFreunde extends Activity {
 
 
     public void speicherBenutzerListeClicked(View v){
+        ArrayList<String> neueFreundeStringListChecked = new ArrayList<String>();
         SparseBooleanArray checked = userListView.getCheckedItemPositions();
         for (int i = 0; i < checked.size(); i++) {
             int position = checked.keyAt(i);
