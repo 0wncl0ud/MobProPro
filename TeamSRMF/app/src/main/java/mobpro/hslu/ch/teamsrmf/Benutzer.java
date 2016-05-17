@@ -55,6 +55,7 @@ public class Benutzer implements java.io.Serializable {
     public String getSemester() { return mSemester; }
 
     public void setName(String name){
+        mOldName = mName;
         mName = name;
     }
 
@@ -74,8 +75,8 @@ public class Benutzer implements java.io.Serializable {
         mYposition = y;
     }
 
-    public void setOldname(){
-        mOldName = "";
+    public void setOldname(String name){
+        mOldName = name;
     }
 
     public void setSemster(String semster){
@@ -84,48 +85,6 @@ public class Benutzer implements java.io.Serializable {
 
     public void setTimeStamp(){
         mTimeStamp = new Date();
-    }
-
-    public void setName(String name, BenutzerManager manager){
-        mOldName = mName;
-        mName = name;
-        manager.editUser(this);
-    }
-
-    public void setStudienrichtung(String studienrichtung, BenutzerManager manager){
-        mOldName = mName;
-        mStudienrichtung = studienrichtung;
-        manager.editUser(this);
-    }
-
-    public void setSemster(String semster, BenutzerManager manager){
-        mOldName = mName;
-        mSemester = semster;
-        manager.editUser(this);
-    }
-
-    public void setFarbe(String farbe, BenutzerManager manager){
-        mOldName = mName;
-        mFarbe = farbe;
-        manager.editUser(this);
-    }
-
-    public void setX(int x, BenutzerManager manager){
-        mOldName = mName;
-        mXposition = x;
-        MainActivity.manager.editUser(this);
-    }
-
-    public void setY(int y, BenutzerManager manager){
-        mOldName = mName;
-        mYposition = y;
-        MainActivity.manager.editUser(this);
-    }
-
-    public void setTimeStamp(Date date, BenutzerManager manager){
-        mOldName = mName;
-        mTimeStamp = date;
-        manager.editUser(this);
     }
 
 }

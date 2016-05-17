@@ -51,6 +51,7 @@ public class BenutzerManager {
     public void editUser(Benutzer user){
         mMeineDaten = user;
         mBusy = true;
+        new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
     }
 
     public ArrayList<Benutzer> loadList(){
