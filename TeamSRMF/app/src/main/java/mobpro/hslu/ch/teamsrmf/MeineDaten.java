@@ -6,25 +6,42 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import java.util.Date;
 
 public class MeineDaten extends Activity {
+    private  EditText fieldUsername;
+    private Spinner studienrichtung;
+    private Spinner semester;
+    private static int posSem, posStudrich;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meine_daten);
+        fieldUsername = (EditText)findViewById(R.id.txtUsername);
+        studienrichtung = (Spinner)findViewById(R.id.spinnerStudienrichtung);
+        semester = (Spinner) findViewById(R.id.spinnerSemester);
+        loadData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
     }
 
     public void saveOwnDataClicked(View v){
-        //// TODO: 17.05.2016 fülle eigener Benutzer ab
-        findViewById(R.id.)
-        Benutzer newUser = Benutzer();
-        MainActivity.manager.addUser(newUser);
+        saveData();
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Freunde");
     }
 
     public void setztePositionClicked(View v){
+        saveData();
         Intent meinePositionActivity = new Intent(this, MeinePosition.class);
         startActivity(meinePositionActivity);
     }
@@ -37,5 +54,37 @@ public class MeineDaten extends Activity {
     public void karteAufrufenClicked(View v){
         Intent karteActivity = new Intent(this, Karte.class);
         startActivity(karteActivity);
+    }
+
+    private void saveData(){
+        Benutzer newUser;
+        if(MainActivity.manager.getmMeineDaten() == null){
+            newUser = new Benutzer(fieldUsername.getText().toString(),
+                    studienrichtung.getItemAtPosition(studienrichtung.getSelectedItemPosition()).toString(),
+                    semester.getItemAtPosition(semester.getSelectedItemPosition()).toString(),
+                    "Blau",
+                    0,0,
+                    new Date());
+        } else{
+            newUser = MainActivity.manager.getmMeineDaten();
+            newUser.setName(fieldUsername.getText().toString());
+            newUser.setSemster(semester.getItemAtPosition(semester.getSelectedItemPosition()).toString());
+            newUser.setStudienrichtung(studienrichtung.getItemAtPosition(studienrichtung.getSelectedItemPosition()).toString());
+            newUser.setFarbe("Blau");
+        }
+        posSem = semester.getSelectedItemPosition();
+        posStudrich = studienrichtung.getSelectedItemPosition();
+        MainActivity.manager.editUser(newUser);
+    }
+
+    private void loadData(){
+        fieldUsername = (EditText)findViewById(R.id.txtUsername);
+        studienrichtung = (Spinner)findViewById(R.id.spinnerStudienrichtung);
+        semester = (Spinner) findViewById(R.id.spinnerSemester);
+        if(MainActivity.manager.getmMeineDaten() != null) {
+            fieldUsername.setText(MainActivity.manager.getmMeineDaten().getName());
+            semester.setSelection(posSem);
+            studienrichtung.setSelection(posStudrich);
+        }
     }
 }

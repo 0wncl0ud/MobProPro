@@ -48,9 +48,8 @@ public class BenutzerManager {
    }
 
     public void editUser(Benutzer user){
-        mMeineDaten=user;
+        mMeineDaten = user;
         mBusy = true;
-        new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
     }
 
     public ArrayList<Benutzer> loadList(){
@@ -127,7 +126,6 @@ public class BenutzerManager {
         @Override
         protected void onPostExecute(Boolean user) {
             mBusy = false;
-            //TODO methode wird nicht aufgerufen!!!
         }
     }
 }

@@ -67,7 +67,7 @@ android:entryValues="@array/SemesterValues"
 android:key="Studienrichtung"
 android:persistent="true"
 android:shouldDisableView="true"
-android:id="@+id/spinnerSemesterValue"/>
+android:id="@+id/spinnerSemester"/>
 
 <TextView
 android:layout_width="match_parent"

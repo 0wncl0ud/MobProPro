@@ -58,7 +58,7 @@ public class MainActivity extends TabActivity {
         }
 
         //-----------------------------TEST KOMUNIKATION-------------------------------------------
-        //manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
+        manager.addUser(new Benutzer("Manuel Felber", "ET", "5", "blau", 12, 345, new Date()));
         //while (manager.getBusy()){
         //
         //}
