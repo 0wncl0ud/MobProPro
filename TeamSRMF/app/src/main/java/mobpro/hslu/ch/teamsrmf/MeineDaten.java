@@ -16,8 +16,10 @@ public class MeineDaten extends Activity {
     }
 
     public void saveOwnDataClicked(View v){
-       //// TODO: 17.05.2016 fülle eigener Benutzer ab
-
+        //// TODO: 17.05.2016 fülle eigener Benutzer ab
+        findViewById(R.id.)
+        Benutzer newUser = Benutzer();
+        MainActivity.manager.addUser(newUser);
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Freunde");
     }
