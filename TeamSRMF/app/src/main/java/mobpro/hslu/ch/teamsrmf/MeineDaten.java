@@ -16,8 +16,8 @@ public class MeineDaten extends Activity {
     }
 
     public void saveOwnDataClicked(View v){
-       // Intent filterSettingsActivity = new Intent(this, FilterSettings.class);
-        //startActivity(filterSettingsActivity);
+       //// TODO: 17.05.2016 fülle eigener Benutzer ab
+
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Freunde");
     }
