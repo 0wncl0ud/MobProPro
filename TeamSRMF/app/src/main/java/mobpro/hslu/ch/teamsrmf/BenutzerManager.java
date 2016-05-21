@@ -1,11 +1,31 @@
 package mobpro.hslu.ch.teamsrmf;
 
+import android.app.Application;
+import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Environment;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Manuel on 10.05.2016.
@@ -21,18 +41,34 @@ public class BenutzerManager {
     private static Socket socket;
     private static boolean mBusy;
 
+    private String mBenutzerFileName;
+    private String mFreundeFileName;
+    private static Context context;
+
 
     private BenutzerManager(){
         mMeineFreunde=new ArrayList<>();
         mViewFreunde=new ArrayList<>();
         mMeineDaten = null;
         mBusy = false;
+        mBenutzerFileName="Benutzer.txt";
+        mFreundeFileName="Freunde.txt";
+        ArrayList<Benutzer> tempList=parseToList(readFromFile(context.getFilesDir().getPath(),mBenutzerFileName));
+        if(!tempList.isEmpty()) {
+            mMeineDaten = tempList.get(0);
+        }
+        tempList=parseToList(readFromFile(context.getFilesDir().getPath(),mFreundeFileName));
+        if(!tempList.isEmpty()) {
+            mMeineFreunde.addAll(tempList);
+        }
+
         //TODO wait until finish
     }
 
 
-    public static BenutzerManager getInstance() {
+    public static BenutzerManager getInstance(Context pContext) {
         if (instance == null) {
+            context=pContext;
             instance = new BenutzerManager();
         }
         return instance;
@@ -52,6 +88,9 @@ public class BenutzerManager {
         mMeineDaten = user;
         mBusy = true;
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
+        ArrayList<Benutzer> temp= new ArrayList<Benutzer>();
+        temp.add(mMeineDaten);
+        saveToFile(temp,context.getFilesDir().getPath(),mBenutzerFileName);
     }
 
     public void loadList(){
@@ -82,10 +121,12 @@ public class BenutzerManager {
 
     public void addmMeineFreunde(ArrayList<Benutzer> addList){
         mMeineFreunde=mergeUserList(mMeineFreunde,addList);
+        saveToFile(mMeineFreunde,context.getFilesDir().getPath(),mFreundeFileName);
     }
 
     public void löschemMeineFreunde(ArrayList<Benutzer> löschList){
         mMeineFreunde=löscheUserList(mMeineFreunde,löschList);
+        saveToFile(mMeineFreunde,context.getFilesDir().getPath(),mFreundeFileName);
     }
 
     public ArrayList<Benutzer> convertStringToBenutzer(ArrayList<String> nameList, ArrayList<Benutzer> benutzerList){
@@ -176,5 +217,81 @@ public class BenutzerManager {
         protected void onPostExecute(Boolean user) {
             mBusy = false;
         }
+    }
+
+    public void saveToFile(ArrayList<Benutzer> list,String path,String fileName){
+        StringBuilder data = new StringBuilder();
+        data.append("{\n\t\"Benutzer\": [{\n");
+        for(int i=0; i < list.size(); i++){
+            data.append("\t\t\"Name\": \"" + list.get(i).getName()                    + "\",\n");
+            data.append("\t\t\"Studiengang\": \"" + list.get(i).getStudienrichtung()  + "\",\n");
+            data.append("\t\t\"Farbe\": \"" + list.get(i).getFarbe()                  + "\",\n");
+            data.append("\t\t\"Semester\": \"" + list.get(i).getSemester()            + "\",\n");
+            data.append("\t\t\"TimeStamp\": \"" + list.get(i).getTimeStamp()          + "\",\n");
+            data.append("\t\t\"Position\": [\n");
+            data.append("\t\t\t\"" + list.get(i).getXposition() + "\",\n");
+            data.append("\t\t\t\"" + list.get(i).getYposition() + "\"\n");
+            data.append("\t\t]\n");
+            if(list.size() > (i+1))
+                data.append("\t}, {\n");
+        }
+        data.append("\t}]\n");
+        data.append("}");
+        File fileBenutzer=new File(path,fileName);
+        try{
+            Writer writer = new BufferedWriter(new FileWriter(fileBenutzer));
+            writer.write(data.toString());
+            writer.flush();
+            writer.close();
+        } catch (IOException ex) {
+            System.out.print(ex.getMessage());
+        }
+    }
+
+
+    public JSONObject readFromFile(String path,String fileName){
+        JSONObject jsonObject=new JSONObject();
+        try{
+            File fileBenutzer = new File(path,fileName);
+            BufferedReader reader = new BufferedReader(new FileReader(fileBenutzer));
+            String line = null;
+            StringBuilder stringBuilder = new StringBuilder();
+            while((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            jsonObject = new JSONObject(stringBuilder.toString());
+
+            //Debug print out json from file
+            //System.out.print("[DEBUG]Read from File" + jsonObject + "\n");
+            //jsonObject.writeJSONString(out);
+        } catch(IOException | JSONException ex){
+            System.out.print(ex.getMessage());
+        }
+        return jsonObject;
+    }
+
+    private ArrayList<Benutzer> parseToList(JSONObject obj){
+        ArrayList<Benutzer> benutzerListe=new ArrayList<>();
+        try{
+            JSONArray benutzer = obj.getJSONArray("Benutzer");
+            for(int i = 0; i < benutzer.length(); i++){
+                //String date = benutzer.getJSONObject(i).getString("TimeStamp");
+                //DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss");
+                //Date result =  df.parse(date);
+                //TODO parse date correct!
+                Date result = new Date();
+                benutzerListe.add(new Benutzer(benutzer.getJSONObject(i).getString("Name"),
+                        benutzer.getJSONObject(i).getString("Studiengang"),
+                        benutzer.getJSONObject(i).getString("Semester"),
+                        "rot",
+                        Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(0)),
+                        Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(1)),
+                        result));
+            }
+        }
+        catch(JSONException ex){
+            System.out.print(ex.getMessage());
+        }
+        return benutzerListe;
     }
 }

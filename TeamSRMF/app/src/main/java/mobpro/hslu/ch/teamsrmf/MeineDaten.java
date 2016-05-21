@@ -84,7 +84,9 @@ public class MeineDaten extends Activity {
         studienrichtung = (Spinner)findViewById(R.id.spinnerStudienrichtung);
         semester = (Spinner) findViewById(R.id.spinnerSemester);
         if(MainActivity.manager.getmMeineDaten() != null) {
-            fieldUsername.setText(MainActivity.manager.getmMeineDaten().getName());
+            Benutzer meinBenutzer=MainActivity.manager.getmMeineDaten();
+            fieldUsername.setText(meinBenutzer.getName());
+            //TODO      setzte den Spinner auch auf den richtigen wert
             semester.setSelection(posSem);
             studienrichtung.setSelection(posStudrich);
         }
