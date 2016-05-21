@@ -1,23 +1,23 @@
 {
 	"Benutzer": [{
-		"Name": "Manuel",
-		"Studiengang": "ET",
+		"Name": "Kilian",
+		"Studiengang": "Elektrotechnik",
 		"Farbe": "rot",
-		"Semester": "2",
-		"TimeStamp": "Thu Sep 28 20:29:30",
+		"Semester": "5",
+		"TimeStamp": "Sat May 21 10:47:50 CEST 2016",
 		"Position": [
-			"12",
-			"13"
+			"0",
+			"0"
 		]
 	}, {
-		"Name": "Silvan",
-		"Studiengang": "ET",
-		"Semester": "2",
-		"TimeStamp": "Thu Sep 28 20:29:30",
-		"Farbe": "rot",
+		"Name": "Flavio",
+		"Studiengang": "Elektrotechnik",
+		"Farbe": "Blau",
+		"Semester": "6",
+		"TimeStamp": "Sat May 21 10:47:50 CEST 2016",
 		"Position": [
-			"34",
-			"233"
+			"297",
+			"446"
 		]
 	}]
 }

@@ -92,12 +92,11 @@ public class BenutzerManager {
         temp.add(mMeineDaten);
         saveToFile(temp, context.getFilesDir().getPath(), mBenutzerFileName);
     }
-
-    public ArrayList<Benutzer> loadList() {
+    
+    public void loadList(){
         mBusy = true;
         Benutzer dummy = null;
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, dummy);
-        return mDatenbank;
     }
 
     public ArrayList<Benutzer> getMeineFreunde() {
