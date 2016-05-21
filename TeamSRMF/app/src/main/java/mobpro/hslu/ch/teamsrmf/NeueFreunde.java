@@ -7,6 +7,7 @@ import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -37,9 +38,12 @@ public class NeueFreunde extends Activity {
         neueFreundeList.add(dummy2);
         neueFreundeList.add(dummy3);
         neueFreundeList=MainActivity.manager.getmDatenbank();
-
-        neueFreundeStringList=MainActivity.manager.convertBenutzerToString(neueFreundeList);
         userListView=(ListView)findViewById(R.id.neueFreundeList);
+        displayList();
+    }
+
+    private void displayList(){
+        neueFreundeStringList=MainActivity.manager.convertBenutzerToString(neueFreundeList);
         if(userListView!=null) {
             adapter = new ArrayAdapter<String>(this, android.R.layout.select_dialog_multichoice, android.R.id.text1, neueFreundeStringList);
             userListView.setAdapter(adapter);
@@ -48,6 +52,14 @@ public class NeueFreunde extends Activity {
 
     public void wendeFilterAnClicked(View v){
         //Todo  Wende den Filter an und gib die restlichen Objekte auf der Liste aus
+        neueFreundeList=MainActivity.manager.getmDatenbank();
+        EditText filterName=(EditText)findViewById(R.id.BenutzernameFilter);
+        if(!filterName.equals(null)){
+            neueFreundeList=MainActivity.manager.filterUserListName(filterName.getText().toString(),neueFreundeList);
+            displayList();
+        }
+
+
 
     }
 
