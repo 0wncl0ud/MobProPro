@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -74,9 +75,16 @@ public class MeineDaten extends Activity {
             newUser.setStudienrichtung(studienrichtung.getItemAtPosition(studienrichtung.getSelectedItemPosition()).toString());
             newUser.setFarbe("Blau");
         }
+        if(MainActivity.manager.filterUserListName(newUser.getName(),MainActivity.manager.getmDatenbank()).isEmpty()){
+            MainActivity.manager.editUser(newUser);
+        }
+        else{
+            //username bereits vorhanden
+            Toast.makeText(this, "Dieser Name existiert bereist", Toast.LENGTH_LONG).show();
+        }
         posSem = semester.getSelectedItemPosition();
         posStudrich = studienrichtung.getSelectedItemPosition();
-        MainActivity.manager.editUser(newUser);
+
     }
 
     private void loadData(){

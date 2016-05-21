@@ -92,7 +92,7 @@ public class BenutzerManager {
         temp.add(mMeineDaten);
         saveToFile(temp, context.getFilesDir().getPath(), mBenutzerFileName);
     }
-    
+
     public void loadList(){
         mBusy = true;
         Benutzer dummy = null;
