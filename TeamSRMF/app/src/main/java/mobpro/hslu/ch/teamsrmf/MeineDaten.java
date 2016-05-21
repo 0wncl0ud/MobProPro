@@ -101,9 +101,10 @@ public class MeineDaten extends Activity {
             fieldUsername.setText(meinBenutzer.getName());
 
             //TODO      setzte den Spinner auch auf den richtigen wert
-
-            posSem=Arrays.asList(R.array.Semester).indexOf(meinBenutzer.getSemester());
-            posStudrich=Arrays.asList(R.array.Semester).indexOf(meinBenutzer.getStudienrichtung());
+            String [] semst=getResources().getStringArray(R.array.Semester);
+            posSem=Arrays.asList(semst).indexOf(meinBenutzer.getSemester());
+            String[] studr = getResources().getStringArray(R.array.Studienrichtung);
+            posStudrich=Arrays.asList(studr).indexOf(meinBenutzer.getStudienrichtung());
             semester.setSelection(posSem);
             studienrichtung.setSelection(posStudrich);
         }
