@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import java.util.Date;
@@ -98,7 +99,11 @@ public class MeineDaten extends Activity {
         if(MainActivity.manager.getmMeineDaten() != null) {
             Benutzer meinBenutzer=MainActivity.manager.getmMeineDaten();
             fieldUsername.setText(meinBenutzer.getName());
+
             //TODO      setzte den Spinner auch auf den richtigen wert
+
+            posSem=Arrays.asList(R.array.Semester).indexOf(meinBenutzer.getSemester());
+            posStudrich=Arrays.asList(R.array.Semester).indexOf(meinBenutzer.getStudienrichtung());
             semester.setSelection(posSem);
             studienrichtung.setSelection(posStudrich);
         }
