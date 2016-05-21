@@ -73,14 +73,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="100">
 
             <TextView
                 android:id="@+id/TxtBenutzernameFilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="8"
+                android:layout_weight="50"
                 android:singleLine="false"
                 android:text="Benutzername"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -89,8 +90,8 @@
             <EditText
                 android:id="@+id/BenutzernameFilter"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="9"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
                 android:entries="@array/Semester"
                 android:entryValues="@array/SemesterValues"
                 android:key="Semester"
