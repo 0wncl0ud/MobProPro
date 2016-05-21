@@ -70,10 +70,15 @@ public class MeineDaten extends Activity {
                     new Date());
         } else{
             newUser = MainActivity.manager.getmMeineDaten();
+            String tempName=newUser.getName();
             newUser.setName(fieldUsername.getText().toString());
+<<<<<<< HEAD
             String tempName=newUser.getName();
             newUser.setName(fieldUsername.getText().toString());
             if(fieldUsername.getText().toString().equals(tempName)){
+=======
+            if(fieldUsername.getText().toString()==tempName){
+>>>>>>> 0943f2046a17bf78701286766ae58ffb5d97d3c4
                 newUser.setOldname(null);
             }
             newUser.setSemster(semester.getItemAtPosition(semester.getSelectedItemPosition()).toString());
