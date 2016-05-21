@@ -29,7 +29,6 @@ public class MeineDaten extends Activity {
         fieldUsername = (EditText)findViewById(R.id.txtUsername);
         studienrichtung = (Spinner)findViewById(R.id.spinnerStudienrichtung);
         semester = (Spinner) findViewById(R.id.spinnerSemester);
-        loadData();
     }
 
     @Override
