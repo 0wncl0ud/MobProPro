@@ -178,12 +178,14 @@ public class BenutzerManager {
 
     public ArrayList<Benutzer> filterUserListName(String name, ArrayList<Benutzer> liste) {
         ArrayList<Benutzer> resultat=new ArrayList<>();
-        if (!liste.isEmpty()) {
-            for (Benutzer benutzer : liste) {
+        if(liste!=null) {
+            if (!liste.isEmpty()) {
+                for (Benutzer benutzer : liste) {
                     if (benutzer.getName().equals(name)) {
                         resultat.add(benutzer);
                         break;
                     }
+                }
             }
         }
         return resultat;
