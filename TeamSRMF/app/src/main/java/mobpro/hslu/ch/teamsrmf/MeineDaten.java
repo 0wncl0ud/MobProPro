@@ -72,7 +72,7 @@ public class MeineDaten extends Activity {
             newUser = MainActivity.manager.getmMeineDaten();
             String tempName=newUser.getName();
             newUser.setName(fieldUsername.getText().toString());
-            if(fieldUsername.getText().toString()==tempName){
+            if(fieldUsername.getText().toString().equals(tempName)){
                 newUser.setOldname(null);
             }
             newUser.setSemster(semester.getItemAtPosition(semester.getSelectedItemPosition()).toString());
