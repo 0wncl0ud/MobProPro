@@ -54,11 +54,10 @@ public class BenutzerManager {
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
     }
 
-    public ArrayList<Benutzer> loadList(){
+    public void loadList(){
         mBusy = true;
         Benutzer dummy = null;
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, dummy);
-        return mDatenbank;
     }
 
     public ArrayList<Benutzer> getMeineFreunde(){

@@ -28,10 +28,16 @@ public class MeineFreunde extends AppCompatActivity {
         setListe();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MainActivity.manager.loadList();
+    }
+
     public void löscheFreundeClicked(View v){
         //// TODO: 09.05.2016 lösche hier die markierten freunde
         ArrayList<String> freundeStringListChecked = new ArrayList<String>();
-        ArrayList<String> freundeListChecked = new ArrayList<String>();
+        //ArrayList<String> freundeListChecked = new ArrayList<String>(); because not used?
         SparseBooleanArray checked = meinFreundeListView.getCheckedItemPositions();
         for (int i = 0; i < checked.size(); i++) {
             int position = checked.keyAt(i);
