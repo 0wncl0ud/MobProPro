@@ -74,7 +74,7 @@ public class MeineFreunde extends AppCompatActivity {
                 freundeStringListChecked.add(adapter.getItem(position));
             }
         }
-        MainActivity.manager.setmViewFreunde((MainActivity.manager.syncList(manager.getmDatenbank(),manager.convertStringToBenutzer(freundeStringListChecked,freundeList)));
+        MainActivity.manager.setmViewFreunde(MainActivity.manager.syncList(manager.getmDatenbank(),manager.convertStringToBenutzer(freundeStringListChecked,freundeList)));
         TabActivity tabs = (TabActivity) getParent();
         tabs.getTabHost().setCurrentTabByTag("Karte");
     }
