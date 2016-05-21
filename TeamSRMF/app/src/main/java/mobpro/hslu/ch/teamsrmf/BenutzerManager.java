@@ -61,7 +61,7 @@ public class BenutzerManager {
         if (!tempList.isEmpty()) {
             mMeineFreunde.addAll(tempList);
         }
-
+        loadList();
         //TODO wait until finish
     }
 
