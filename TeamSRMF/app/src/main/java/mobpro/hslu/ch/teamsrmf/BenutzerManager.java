@@ -160,6 +160,23 @@ public class BenutzerManager {
         return liste1;
     }
 
+    public ArrayList<Benutzer> syncList(ArrayList<Benutzer> alleList, ArrayList<Benutzer> vorgabeList) {
+        ArrayList<Benutzer> result=new ArrayList<>();
+        if (!alleList.isEmpty()) {
+            if (!vorgabeList.isEmpty()) {
+                for (Benutzer benutzer2 : alleList) {
+                    for (Benutzer benutzer1 : vorgabeList) {
+                        if (benutzer1.getName().equals(benutzer2.getName())) {
+                            result.add(benutzer2);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     public ArrayList<Benutzer> löscheUserList(ArrayList<Benutzer> vorgabeListe, ArrayList<Benutzer> löschListe) {
         if (!vorgabeListe.isEmpty()) {
             if (!löschListe.isEmpty()) {
