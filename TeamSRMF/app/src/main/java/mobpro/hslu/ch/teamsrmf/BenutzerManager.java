@@ -56,8 +56,8 @@ public class BenutzerManager {
         ArrayList<Benutzer> tempList = parseToList(readFromFile(context.getFilesDir().getPath(), mBenutzerFileName));
         if (!tempList.isEmpty()) {
             mMeineDaten = tempList.get(0);
+            mMeineDaten.setOldname(null);
         }
-        mMeineDaten.setOldname(null);
         tempList = parseToList(readFromFile(context.getFilesDir().getPath(), mFreundeFileName));
         if (!tempList.isEmpty()) {
             mMeineFreunde.addAll(tempList);

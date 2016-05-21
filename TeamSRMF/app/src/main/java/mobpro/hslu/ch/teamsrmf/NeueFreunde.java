@@ -46,19 +46,9 @@ public class NeueFreunde extends Activity {
         }
     }
 
-
-
-    public void AllClicked(View v){
-        //// TODO: 10.05.2016 Markiere alle
-
-    }
-
-    public void NoneClicked(View v){
-        //// TODO: 10.05.2016 demarkiere alle
-    }
-
     public void wendeFilterAnClicked(View v){
         //Todo  Wende den Filter an und gib die restlichen Objekte auf der Liste aus
+
     }
 
     public void AbbrechenNeueFreundeClicked(View v){

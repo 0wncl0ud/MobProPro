@@ -124,29 +124,6 @@
                 android:fastScrollAlwaysVisible="false"
                 android:fastScrollEnabled="false" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/SelectAll"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:onClick="AllClicked"
-                android:text="Alle" />
-
-            <Button
-                android:id="@+id/buttonLoad"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:onClick="NoneClicked"
-                android:text="Niemand" />
-        </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
