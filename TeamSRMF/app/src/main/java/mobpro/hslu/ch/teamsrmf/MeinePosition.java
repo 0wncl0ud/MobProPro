@@ -78,6 +78,7 @@ public class MeinePosition extends AppCompatActivity {
         meinBenutzer.setXposition(imageX);
         meinBenutzer.setYposition(imageY);
         meinBenutzer.setTimeStamp();
+        meinBenutzer.setOldname(meinBenutzer.getName());
         manager.editUser(meinBenutzer);
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);

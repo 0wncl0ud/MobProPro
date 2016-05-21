@@ -71,6 +71,11 @@ public class MeineDaten extends Activity {
         } else{
             newUser = MainActivity.manager.getmMeineDaten();
             newUser.setName(fieldUsername.getText().toString());
+            String tempName=newUser.getName();
+            newUser.setName(fieldUsername.getText().toString());
+            if(fieldUsername.getText().toString().equals(tempName)){
+                newUser.setOldname(null);
+            }
             newUser.setSemster(semester.getItemAtPosition(semester.getSelectedItemPosition()).toString());
             newUser.setStudienrichtung(studienrichtung.getItemAtPosition(studienrichtung.getSelectedItemPosition()).toString());
             newUser.setFarbe("Blau");
