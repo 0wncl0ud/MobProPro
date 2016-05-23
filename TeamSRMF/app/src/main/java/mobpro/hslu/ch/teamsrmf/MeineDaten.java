@@ -87,15 +87,8 @@ public class MeineDaten extends Activity {
         }
         else{
             //username bereits vorhanden
-            Benutzer tempBenutzer= tempBeutzerListe.get(0);
-            if(tempBenutzer.getStudienrichtung().equals(newUser.getStudienrichtung()) && tempBenutzer.getSemester().equals(newUser.getSemester())){
-                newUser.setOldname(newUser.getName());
-                MainActivity.manager.editUser(newUser);
-            }
-            else{
-                Toast.makeText(this, "Dieser Name existiert bereist, keine Berechtigung", Toast.LENGTH_LONG).show();
-            }
-
+            newUser.setOldname(newUser.getName());
+            MainActivity.manager.editUser(newUser);
         }
         posSem = semester.getSelectedItemPosition();
         posStudrich = studienrichtung.getSelectedItemPosition();
