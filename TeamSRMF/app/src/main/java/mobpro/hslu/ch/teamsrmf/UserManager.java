@@ -189,18 +189,46 @@ public class UserManager {
     }
 
     public ArrayList<User> filterUserListName(String name, ArrayList<User> list) {
-        ArrayList<User> resultat=new ArrayList<>();
+        ArrayList<User> result=new ArrayList<>();
         if(list!=null) {
             if (!list.isEmpty()) {
                 for (User user : list) {
                     if (user.getName().equals(name)) {
-                        resultat.add(user);
+                        result.add(user);
                         break;
                     }
                 }
             }
         }
-        return resultat;
+        return result;
+    }
+
+    public ArrayList<User> filterUserTerm(String term, ArrayList<User> list) {
+        ArrayList<User> result=new ArrayList<>();
+        if(list!=null) {
+            if (!list.isEmpty()) {
+                for (User user : list) {
+                    if (user.getTerm().equals(term)) {
+                        result.add(user);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    public ArrayList<User> filterUserFieldOfStudy(String fieldOfStudy, ArrayList<User> list) {
+        ArrayList<User> result=new ArrayList<>();
+        if(list!=null) {
+            if (!list.isEmpty()) {
+                for (User user : list) {
+                    if (user.getFieldOfStudy().equals(fieldOfStudy)) {
+                        result.add(user);
+                    }
+                }
+            }
+        }
+        return result;
     }
 
         public ArrayList<String> convertUserToString(ArrayList <User> userList) {

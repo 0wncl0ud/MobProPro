@@ -9,8 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class NewFriends extends Activity {
 
@@ -21,12 +23,17 @@ public class NewFriends extends Activity {
     private ArrayList<String> newFriendsStringList = new ArrayList<String>();
     private ArrayList<User> newFriendsList = new ArrayList<User>();
     private boolean selectedFlag=false;
-
+    private EditText filterName;
+    private Spinner spinnerTerm;
+    private Spinner spinnerFieldOfStudy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_friends);
+        filterName=(EditText)findViewById(R.id.UsernameFilter);
+        spinnerTerm=(Spinner)findViewById(R.id.spinnerTermValueFilter);
+        spinnerFieldOfStudy=(Spinner)findViewById(R.id.spinnerFieldOfStudyValue);
         newFriendsList =MainActivity.manager.getmDatabase();
         userListView=(ListView)findViewById(R.id.newFriendsList);
         displayList();
@@ -40,14 +47,22 @@ public class NewFriends extends Activity {
         }
     }
 
-    public void wendeFilterAnClicked(View v){
+    public void filterClicked(View v){
         //Todo  Wende den Filter an und gib die restlichen Objekte auf der Liste aus
         newFriendsList =MainActivity.manager.getmDatabase();
-        EditText filterName=(EditText)findViewById(R.id.UsernameFilter);
-        if(!filterName.equals(null)){
-            newFriendsList =MainActivity.manager.filterUserListName(filterName.getText().toString(), newFriendsList);
-            displayList();
+        String usernameFilter= filterName.getText().toString();
+        String termSelected=(String)spinnerTerm.getSelectedItem();
+        String fieldOfStudySelected=(String)spinnerFieldOfStudy.getSelectedItem();
+        if(!usernameFilter.equals("")){
+            newFriendsList =MainActivity.manager.filterUserListName(usernameFilter, newFriendsList);
         }
+        if(!termSelected.equals("-")){
+            newFriendsList =MainActivity.manager.filterUserTerm(termSelected, newFriendsList);
+        }
+        if(!fieldOfStudySelected.equals("-")){
+            newFriendsList =MainActivity.manager.filterUserFieldOfStudy(fieldOfStudySelected, newFriendsList);
+        }
+        displayList();
     }
 
     public void AbortNewFriendClicked(View v){

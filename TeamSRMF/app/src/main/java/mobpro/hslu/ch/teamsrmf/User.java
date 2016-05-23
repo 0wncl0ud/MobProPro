@@ -11,19 +11,19 @@ import java.util.Date;
  * Created by Manuel on 09.05.2016.
  */
 public class User implements java.io.Serializable {
-    private String mName, mFarbe, mStudienrichtung, mSemester, mOldName;
+    private String mName, mColor, mFieldOfStudy, mTerm, mOldName;
     private int mXposition, mYposition;
     private Date mTimeStamp;
     private static final long serialVersionUID = 1L;
 
-    public User(String name, String studienrichtungm, String semester, String farbe, int x, int y, Date timeStamp){
+    public User(String name, String fieldOfStudy, String term, String color, int x, int y, Date timeStamp){
         mName = name;
-        mFarbe = farbe;
-        mStudienrichtung = studienrichtungm;
+        mColor = color;
+        mFieldOfStudy = fieldOfStudy;
         mXposition = x;
         mYposition = y;
         mTimeStamp = timeStamp;
-        mSemester = semester;
+        mTerm = term;
     }
 
     public String getName(){
@@ -31,11 +31,11 @@ public class User implements java.io.Serializable {
     }
 
     public String getColor(){
-        return mFarbe;
+        return mColor;
     }
 
     public String getFieldOfStudy(){
-        return mStudienrichtung;
+        return mFieldOfStudy;
     }
 
     public int getXposition(){
@@ -52,19 +52,19 @@ public class User implements java.io.Serializable {
 
     public Date getTimeStamp(){ return mTimeStamp; }
 
-    public String getTerm() { return mSemester; }
+    public String getTerm() { return mTerm; }
 
     public void setName(String name){
         mOldName = mName;
         mName = name;
     }
 
-    public void setColor(String farbe){
-        mFarbe = farbe;
+    public void setColor(String color){
+        mColor = color;
     }
 
-    public void setFieldOfStudy(String studienrichtung){
-        mStudienrichtung = studienrichtung;
+    public void setFieldOfStudy(String fieldOfStudy){
+        mFieldOfStudy = fieldOfStudy;
     }
 
     public void setXposition(int x){
@@ -79,8 +79,8 @@ public class User implements java.io.Serializable {
         mOldName = name;
     }
 
-    public void setTerm(String semster){
-        mSemester = semster;
+    public void setTerm(String term){
+        mTerm = term;
     }
 
     public void setTimeStamp(){

@@ -100,11 +100,9 @@ public class MyData extends Activity {
         if(MainActivity.manager.getmMyData() != null) {
             User myUser =MainActivity.manager.getmMyData();
             fieldUsername.setText(myUser.getName());
-
-            //TODO      setzte den Spinner auch auf den richtigen wert
-            String [] tempTerm=getResources().getStringArray(R.array.Semester);
+            String [] tempTerm=getResources().getStringArray(R.array.Term);
             posTerm =Arrays.asList(tempTerm).indexOf(myUser.getTerm());
-            String[] tempFieldOfStudy = getResources().getStringArray(R.array.Studienrichtung);
+            String[] tempFieldOfStudy = getResources().getStringArray(R.array.FieldOfStudy);
             posFieldOfStudy =Arrays.asList(tempFieldOfStudy).indexOf(myUser.getFieldOfStudy());
             term.setSelection(posTerm);
             fieldOfStudy.setSelection(posFieldOfStudy);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="Studienrichtung">
+    <string-array name="FieldOfStudy">
         <item>-</item>
         <item>Elektrotechnik</item>
         <item>Informatik</item>
@@ -10,7 +10,7 @@
         <item>Dozent</item>
         <item>Sonstige</item>
     </string-array>
-    <string-array name="StudienrichtungValues">
+    <string-array name="FieldOfStudyValues">
         <item>-</item>
         <item>Elektrotechnik</item>
         <item>Informatik</item>
@@ -20,7 +20,7 @@
         <item>Dozent</item>
         <item>Sonstige</item>
     </string-array>
-    <string-array name="Semester">
+    <string-array name="Term">
         <item>-</item>
         <item>1</item>
         <item>2</item>
@@ -33,7 +33,7 @@
         <item>9</item>
         <item>weitere</item>
     </string-array>
-    <string-array name="SemesterValues">
+    <string-array name="TermValues">
         <item>-</item>
         <item>1</item>
         <item>2</item>
