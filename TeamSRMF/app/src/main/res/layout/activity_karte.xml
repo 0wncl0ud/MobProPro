@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:weightSum="100">
-
+    android:weightSum="110">
     <TextView
         android:id="@+id/textView"
         android:layout_width="fill_parent"
@@ -56,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Aktulalisieren"
-        android:layout_weight="5"
+        android:layout_weight="10"
         android:id="@+id/refreshList"
         android:onClick="refreshList" />
 

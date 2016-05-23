@@ -17,8 +17,8 @@ import java.util.Date;
 
 public class MeinePosition extends AppCompatActivity {
     ImageView imVmensaplan;
-    Benutzer meinBenutzer;
-    BenutzerManager manager;
+    User meinUser;
+    UserManager manager;
     int[] viewCoords;
     int imageX=0;
     int imageY=0;
@@ -26,10 +26,10 @@ public class MeinePosition extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meine_position);
-        manager=BenutzerManager.getInstance(getApplicationContext());
+        manager= UserManager.getInstance(getApplicationContext());
         imVmensaplan = (ImageView) findViewById(R.id.imageViewMeinePosition);
         getMeinBenutzer();
-        setPicture(meinBenutzer.getXposition(),meinBenutzer.getYposition());
+        setPicture(meinUser.getXposition(), meinUser.getYposition());
         viewCoords = new int[2];
         imVmensaplan.getLocationOnScreen(viewCoords);
         imVmensaplan.setOnTouchListener( new View.OnTouchListener() {
@@ -65,21 +65,21 @@ public class MeinePosition extends AppCompatActivity {
     }
     public void NichtMehrDaClicked(View v) {
         getMeinBenutzer();
-        meinBenutzer.setXposition(0);
-        meinBenutzer.setYposition(0);
-        meinBenutzer.setTimeStamp();
-        manager.editUser(meinBenutzer);
+        meinUser.setXposition(0);
+        meinUser.setYposition(0);
+        meinUser.setTimeStamp();
+        manager.editUser(meinUser);
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 
     public void speichereMeinePositionClicked(View v) {
         getMeinBenutzer();
-        meinBenutzer.setXposition(imageX);
-        meinBenutzer.setYposition(imageY);
-        meinBenutzer.setTimeStamp();
-        meinBenutzer.setOldname(meinBenutzer.getName());
-        manager.editUser(meinBenutzer);
+        meinUser.setXposition(imageX);
+        meinUser.setYposition(imageY);
+        meinUser.setTimeStamp();
+        meinUser.setOldname(meinUser.getName());
+        manager.editUser(meinUser);
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
@@ -89,9 +89,9 @@ public class MeinePosition extends AppCompatActivity {
         startActivity(mainActivity);
     }
     private void getMeinBenutzer(){
-        meinBenutzer=manager.getmMeineDaten();
-        if(meinBenutzer==null){
-            meinBenutzer=new Benutzer("Hans Muster","Informatik", "3","Blue",0,0,new Date());
+        meinUser =manager.getmMeineDaten();
+        if(meinUser ==null){
+            meinUser =new User("Hans Muster","Informatik", "3","Blue",0,0,new Date());
         }
     }
 }

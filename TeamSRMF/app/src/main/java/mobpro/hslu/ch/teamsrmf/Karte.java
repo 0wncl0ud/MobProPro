@@ -1,12 +1,9 @@
 package mobpro.hslu.ch.teamsrmf;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Karte extends AppCompatActivity {
-    private ArrayList<Benutzer> freundeList = new ArrayList<Benutzer>();
+    private ArrayList<User> freundeList = new ArrayList<User>();
     TextView freundText1;
     TextView freundText2;
     TextView freundText3;
@@ -51,7 +48,7 @@ public class Karte extends AppCompatActivity {
         freundText2.setText("-");
         freundText3.setText("-");
         freundText4.setText("-");
-        for (Benutzer freund:freundeList){
+        for (User freund:freundeList){
             int userColor = 0;
             switch (colorCounter){
                 case 0: userColor=Color.BLUE;
@@ -66,9 +63,9 @@ public class Karte extends AppCompatActivity {
                     freundText3.setText(freund.getName());
                     freundText3.setTextColor(Color.GREEN);
                 break;
-                case 3: userColor=Color.YELLOW;
+                case 3: userColor=Color.DKGRAY;
                     freundText4.setText(freund.getName());
-                    freundText4.setTextColor(Color.YELLOW);
+                    freundText4.setTextColor(Color.DKGRAY);
                 break;
             }
             canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition(),userColor);

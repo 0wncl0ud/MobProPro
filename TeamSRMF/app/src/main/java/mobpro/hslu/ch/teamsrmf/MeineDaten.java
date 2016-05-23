@@ -3,18 +3,16 @@ package mobpro.hslu.ch.teamsrmf;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-import java.util.Date;
+//todo Refactor auf en, Aktuklaisiern button, Gelb andere Farbe,
 
 public class MeineDaten extends Activity {
     private  EditText fieldUsername;
@@ -61,9 +59,9 @@ public class MeineDaten extends Activity {
     }
 
     private void saveData(){
-        Benutzer newUser;
+        User newUser;
         if(MainActivity.manager.getmMeineDaten() == null){
-            newUser = new Benutzer(fieldUsername.getText().toString(),
+            newUser = new User(fieldUsername.getText().toString(),
                     studienrichtung.getItemAtPosition(studienrichtung.getSelectedItemPosition()).toString(),
                     semester.getItemAtPosition(semester.getSelectedItemPosition()).toString(),
                     "Blau",
@@ -81,7 +79,7 @@ public class MeineDaten extends Activity {
             newUser.setFarbe("Blau");
         }
         //gibt es den Name bereits
-        ArrayList<Benutzer> tempBeutzerListe=MainActivity.manager.filterUserListName(newUser.getName(),MainActivity.manager.getmDatenbank());
+        ArrayList<User> tempBeutzerListe=MainActivity.manager.filterUserListName(newUser.getName(),MainActivity.manager.getmDatenbank());
         if(tempBeutzerListe.isEmpty()){
             MainActivity.manager.editUser(newUser);
         }
@@ -100,14 +98,14 @@ public class MeineDaten extends Activity {
         studienrichtung = (Spinner)findViewById(R.id.spinnerStudienrichtung);
         semester = (Spinner) findViewById(R.id.spinnerSemester);
         if(MainActivity.manager.getmMeineDaten() != null) {
-            Benutzer meinBenutzer=MainActivity.manager.getmMeineDaten();
-            fieldUsername.setText(meinBenutzer.getName());
+            User meinUser =MainActivity.manager.getmMeineDaten();
+            fieldUsername.setText(meinUser.getName());
 
             //TODO      setzte den Spinner auch auf den richtigen wert
             String [] semst=getResources().getStringArray(R.array.Semester);
-            posSem=Arrays.asList(semst).indexOf(meinBenutzer.getSemester());
+            posSem=Arrays.asList(semst).indexOf(meinUser.getSemester());
             String[] studr = getResources().getStringArray(R.array.Studienrichtung);
-            posStudrich=Arrays.asList(studr).indexOf(meinBenutzer.getStudienrichtung());
+            posStudrich=Arrays.asList(studr).indexOf(meinUser.getStudienrichtung());
             semester.setSelection(posSem);
             studienrichtung.setSelection(posStudrich);
         }

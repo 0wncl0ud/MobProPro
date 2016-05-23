@@ -20,7 +20,7 @@ public class NeueFreunde extends Activity {
     private CheckedTextView myCheckedTextView;
     private  ListView userListView;
     private ArrayList<String> neueFreundeStringList = new ArrayList<String>();
-    private ArrayList<Benutzer> neueFreundeList = new ArrayList<Benutzer>();
+    private ArrayList<User> neueFreundeList = new ArrayList<User>();
     private boolean selectedFlag=false;
 
 
@@ -30,9 +30,9 @@ public class NeueFreunde extends Activity {
         setContentView(R.layout.activity_neue_freunde);
 
         //--------DEBUG-----
-        Benutzer dummy1=new Benutzer("Dummy1", "Elektrotechnik", "1","blue", 200, 100, new Date());
-        Benutzer dummy2=new Benutzer("Dummy2", "Elektrotechnik", "2","blue", 250, 100, new Date());
-        Benutzer dummy3=new Benutzer("Dummy3", "Elektrotechnik", "3","blue", 300, 100, new Date());
+        User dummy1=new User("Dummy1", "Elektrotechnik", "1","blue", 200, 100, new Date());
+        User dummy2=new User("Dummy2", "Elektrotechnik", "2","blue", 250, 100, new Date());
+        User dummy3=new User("Dummy3", "Elektrotechnik", "3","blue", 300, 100, new Date());
         //getList()
         neueFreundeList.add(dummy1);
         neueFreundeList.add(dummy2);
