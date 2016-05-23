@@ -39,7 +39,7 @@ public class Karte extends AppCompatActivity {
         freundeList=MainActivity.manager.getmViewFreunde();
         Canvas canvas = new Canvas(mutableBitmap);
         for (Benutzer freund:freundeList){
-            int userColor;
+            int userColor = 0;
             switch (colorCounter){
                 case 0: userColor=Color.BLUE; break;
                 case 1: userColor=Color.RED; break;
@@ -61,12 +61,12 @@ public class Karte extends AppCompatActivity {
     }
 
    public void refreshList (View v){
-       //todo refresh list
        MainActivity.manager.loadList();
-       //replace this code
-       while(MainActivity.manager.getBusy()){
-
-       }
+        try{
+            Thread.sleep(1000);
+        }catch (InterruptedException ex){
+            //error
+        }
        MainActivity.manager.setmViewFreunde(MainActivity.manager.syncList(MainActivity.manager.getmDatenbank(),MainActivity.manager.getmViewFreunde()));
        setPicture();
    }
