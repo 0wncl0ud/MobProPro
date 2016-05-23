@@ -22,20 +22,31 @@
         android:layout_weight="70"
         android:layout_gravity="center"
         android:id="@+id/imageView" />
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+        <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="-"
-        android:layout_weight="5"
+        android:layout_weight="3"
         android:id="@+id/userView1" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="-"
-        android:layout_weight="5"
-        android:id="@+id/userView2" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="-"
+            android:layout_weight="3"
+            android:id="@+id/userView2" />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="horizontal">
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -50,12 +61,12 @@
         android:text="-"
         android:layout_weight="5"
         android:id="@+id/userView4" />
+        </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Aktulalisieren"
-        android:layout_weight="10"
         android:id="@+id/refreshList"
         android:onClick="refreshList" />
 
