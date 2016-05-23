@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:singleLine="false"
         android:text="Finde deine Freunde"
-        android:layout_weight="3"
+        android:layout_weight="5"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30dp" />
 
@@ -20,7 +20,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="90"
+        android:layout_weight="70"
         android:layout_gravity="center"
         android:id="@+id/imageView" />
     <TextView
@@ -28,31 +28,35 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="-"
+        android:layout_weight="5"
         android:id="@+id/userView1" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="-"
+        android:layout_weight="5"
         android:id="@+id/userView2" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="-"
+        android:layout_weight="5"
         android:id="@+id/userView3" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="-"
+        android:layout_weight="5"
         android:id="@+id/userView4" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Aktulalisieren"
-        android:layout_weight="7"
+        android:layout_weight="5"
         android:id="@+id/refreshList"
         android:onClick="refreshList" />
 

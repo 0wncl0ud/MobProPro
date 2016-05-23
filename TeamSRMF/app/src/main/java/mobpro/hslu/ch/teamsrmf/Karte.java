@@ -13,15 +13,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Karte extends AppCompatActivity {
     private ArrayList<Benutzer> freundeList = new ArrayList<Benutzer>();
+    TextView freundText1;
+    TextView freundText2;
+    TextView freundText3;
+    TextView freundText4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_karte);
+        freundText1=(TextView)findViewById(R.id.userView1);
+        freundText2=(TextView)findViewById(R.id.userView2);
+        freundText3=(TextView)findViewById(R.id.userView3);
+        freundText4=(TextView)findViewById(R.id.userView4);
         setPicture();
     }
 
@@ -38,13 +47,25 @@ public class Karte extends AppCompatActivity {
         ImageView imVmensaplan=(ImageView)findViewById(R.id.imageView);
         freundeList=MainActivity.manager.getmViewFreunde();
         Canvas canvas = new Canvas(mutableBitmap);
+        freundText1.setText("-");
+        freundText2.setText("-");
+        freundText3.setText("-");
+        freundText4.setText("-");
         for (Benutzer freund:freundeList){
-            int userColor;
+            int userColor=0;
             switch (colorCounter){
-                case 0: userColor=Color.BLUE; break;
-                case 1: userColor=Color.RED; break;
-                case 2: userColor=Color.GREEN; break;
-                case 3: userColor=Color.YELLOW; break;
+                case 0: userColor=Color.BLUE;
+                    freundText1.setText(freund.getName());
+                    break;
+                case 1: userColor=Color.RED;
+                    freundText2.setText(freund.getName());
+                    break;
+                case 2: userColor=Color.GREEN;
+                    freundText3.setText(freund.getName());
+                break;
+                case 3: userColor=Color.YELLOW;
+                    freundText4.setText(freund.getName());
+                break;
             }
             canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition(),userColor);
             colorCounter++;
