@@ -32,7 +32,7 @@ public class FileHandler {
     }
     
     
-    public void saveToFile(ArrayList<Benutzer> list){
+    public void saveToFile(ArrayList<User> list){
         StringBuilder data = new StringBuilder();
         data.append("{\n\t\"Benutzer\": [{\n");
         for(int i=0; i < list.size(); i++){

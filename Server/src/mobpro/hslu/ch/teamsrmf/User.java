@@ -10,13 +10,13 @@ import java.util.Date;
 /**
  * Created by Manuel on 09.05.2016.
  */
-public class Benutzer implements java.io.Serializable {
+public class User implements java.io.Serializable {
     private String mName, mFarbe, mStudienrichtung, mSemester, mOldName;
     private int mXposition, mYposition;
     private Date mTimeStamp;
     private static final long serialVersionUID = 1L;
 
-    public Benutzer(String name, String studienrichtungm, String semester,String farbe, int x, int y, Date timeStamp){
+    public User(String name, String studienrichtungm, String semester, String farbe, int x, int y, Date timeStamp){
         mName = name;
         mFarbe = farbe;
         mStudienrichtung = studienrichtungm;

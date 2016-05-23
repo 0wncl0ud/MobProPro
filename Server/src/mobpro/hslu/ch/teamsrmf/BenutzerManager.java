@@ -17,7 +17,7 @@ import org.json.JSONObject;
  */
 public class BenutzerManager {
     private FileHandler file;
-    private ArrayList<Benutzer> mList;
+    private ArrayList<User> mList;
     
     public BenutzerManager(){
         file = new FileHandler("test.txt");
@@ -26,16 +26,16 @@ public class BenutzerManager {
         this.parseToList(JsonObj);
     }
     
-    public void addBenutzer(Benutzer user){
+    public void addBenutzer(User user){
         mList.add(user);    
         file.saveToFile(mList);
     }
     
-    public void editUser(Benutzer user){
+    public void editUser(User user){
         //loader.execute(user);
     }
         
-    public void editBenutzer(Benutzer user){
+    public void editBenutzer(User user){
         for(int i=0; i < mList.size();i++){
             if(mList.get(i).getName().equalsIgnoreCase(user.getOldName())){
                 mList.get(i).setName(user.getName());
@@ -50,7 +50,7 @@ public class BenutzerManager {
         file.saveToFile(mList);
     }
     
-    private ArrayList<Benutzer> parseToList(JSONObject obj){
+    private ArrayList<User> parseToList(JSONObject obj){
         try{
             JSONArray benutzer = obj.getJSONArray("Benutzer");
             for(int i = 0; i < benutzer.length(); i++){
@@ -59,7 +59,7 @@ public class BenutzerManager {
                     //Date result =  df.parse(date);
                     //TODO parse date correct!
                     Date result = new Date();
-                    mList.add(new Benutzer(benutzer.getJSONObject(i).getString("Name"),
+                    mList.add(new User(benutzer.getJSONObject(i).getString("Name"),
                                     benutzer.getJSONObject(i).getString("Studiengang"),
                                     benutzer.getJSONObject(i).getString("Semester"),
                                     "rot",
@@ -74,7 +74,7 @@ public class BenutzerManager {
         return mList;
     }
     
-    public ArrayList<Benutzer> getList(){
+    public ArrayList<User> getList(){
         return mList;
     }
 }

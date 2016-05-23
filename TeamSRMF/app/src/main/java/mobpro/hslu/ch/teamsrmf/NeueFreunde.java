@@ -54,13 +54,14 @@ public class NeueFreunde extends Activity {
         //Todo  Wende den Filter an und gib die restlichen Objekte auf der Liste aus
         neueFreundeList=MainActivity.manager.getmDatenbank();
         EditText filterName=(EditText)findViewById(R.id.BenutzernameFilter);
-        if(!filterName.equals(null)){
+        String userTofind = filterName.getText().toString();
+        if(userTofind.equals("")){
+            neueFreundeList = MainActivity.manager.getmDatenbank();
+            displayList();
+        }else if(!filterName.equals(null)){
             neueFreundeList=MainActivity.manager.filterUserListName(filterName.getText().toString(),neueFreundeList);
             displayList();
         }
-
-
-
     }
 
     public void AbbrechenNeueFreundeClicked(View v){

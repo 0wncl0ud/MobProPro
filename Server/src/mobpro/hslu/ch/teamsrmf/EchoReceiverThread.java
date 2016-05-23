@@ -32,7 +32,7 @@ public class EchoReceiverThread extends Thread {
                             ObjectOutputStream outObj = new ObjectOutputStream(tcpSocket.getOutputStream());
                             
                             //wait for request
-                            Benutzer request = (Benutzer) inObj.readObject();
+                            User request = (User) inObj.readObject();
                             System.out.print("[DEBUG]Request received!\n");
                             
                             if(request != null){
