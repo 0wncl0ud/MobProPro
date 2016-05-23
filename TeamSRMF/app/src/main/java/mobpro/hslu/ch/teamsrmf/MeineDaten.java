@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -79,12 +80,22 @@ public class MeineDaten extends Activity {
             newUser.setStudienrichtung(studienrichtung.getItemAtPosition(studienrichtung.getSelectedItemPosition()).toString());
             newUser.setFarbe("Blau");
         }
-        if(MainActivity.manager.filterUserListName(newUser.getName(),MainActivity.manager.getmDatenbank()).isEmpty()){
+        //gibt es den Name bereits
+        ArrayList<Benutzer> tempBeutzerListe=MainActivity.manager.filterUserListName(newUser.getName(),MainActivity.manager.getmDatenbank());
+        if(tempBeutzerListe.isEmpty()){
             MainActivity.manager.editUser(newUser);
         }
         else{
             //username bereits vorhanden
-            Toast.makeText(this, "Dieser Name existiert bereist", Toast.LENGTH_LONG).show();
+            Benutzer tempBenutzer= tempBeutzerListe.get(0);
+            if(tempBenutzer.getStudienrichtung().equals(newUser.getStudienrichtung()) && tempBenutzer.getSemester().equals(newUser.getSemester())){
+                newUser.setOldname(newUser.getName());
+                MainActivity.manager.editUser(newUser);
+            }
+            else{
+                Toast.makeText(this, "Dieser Name existiert bereist, keine Berechtigung", Toast.LENGTH_LONG).show();
+            }
+
         }
         posSem = semester.getSelectedItemPosition();
         posStudrich = studienrichtung.getSelectedItemPosition();

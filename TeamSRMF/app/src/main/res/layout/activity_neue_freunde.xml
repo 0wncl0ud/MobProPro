@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="20"
                 android:entries="@array/Semester"
-                android:entryValues="@array/SemesterValues"
+                android:entryValues="@array/StudienrichtungValues"
                 android:key="Studienrichtung"
                 android:persistent="true"
                 android:shouldDisableView="true"
