@@ -60,15 +60,15 @@ public class Karte extends AppCompatActivity {
                     break;
                 case 1: userColor=Color.RED;
                     freundText2.setText(freund.getName());
-                    freundText1.setTextColor(Color.RED);
+                    freundText2.setTextColor(Color.RED);
                     break;
                 case 2: userColor=Color.GREEN;
                     freundText3.setText(freund.getName());
-                    freundText1.setTextColor(Color.GREEN);
+                    freundText3.setTextColor(Color.GREEN);
                 break;
                 case 3: userColor=Color.YELLOW;
                     freundText4.setText(freund.getName());
-                    freundText1.setTextColor(Color.YELLOW);
+                    freundText4.setTextColor(Color.YELLOW);
                 break;
             }
             canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition(),userColor);
