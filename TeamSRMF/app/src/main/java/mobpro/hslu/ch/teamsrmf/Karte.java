@@ -88,7 +88,7 @@ public class Karte extends AppCompatActivity {
    public void refreshList (View v){
        MainActivity.manager.loadList();
         try{
-            Thread.sleep(1000);
+            Thread.sleep(500);
         }catch (InterruptedException ex){
             //error
         }
