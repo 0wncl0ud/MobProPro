@@ -29,7 +29,7 @@
             android:text="Nicht mehr da"
             android:layout_weight="5"
             android:id="@+id/nichtMehrDa"
-            android:onClick="NichtMehrDaClicked" />
+            android:onClick="awayClicked" />
 
         <Button
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_weight="5"
             android:text="Speichere meine Position"
             android:id="@+id/speichereMeinePosition"
-            android:onClick="speichereMeinePositionClicked" />
+            android:onClick="saveMyPositionClicked" />
 
         <Button
             android:layout_width="match_parent"
@@ -45,7 +45,7 @@
             android:text="Abbrechen"
             android:layout_weight="5"
             android:id="@+id/abbrechenMeinePosition"
-            android:onClick="abbrechenClicked" />
+            android:onClick="abortClicked" />
     </LinearLayout>
 </ScrollView>
 

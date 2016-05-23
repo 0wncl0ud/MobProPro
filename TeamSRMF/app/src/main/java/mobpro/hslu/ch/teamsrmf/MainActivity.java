@@ -19,24 +19,24 @@ public class MainActivity extends TabActivity {
         tabHost = (TabHost) findViewById(android.R.id.tabhost);
 
 
-        TabHost.TabSpec tabDaten = tabHost.newTabSpec("Meine Daten");
-        TabHost.TabSpec tabKarte = tabHost.newTabSpec("Karte");
-        TabHost.TabSpec tabFreunde = tabHost.newTabSpec("Freunde");
+        TabHost.TabSpec tabData = tabHost.newTabSpec("Meine Daten");
+        TabHost.TabSpec tabMap = tabHost.newTabSpec("Map");
+        TabHost.TabSpec tabFriends= tabHost.newTabSpec("Freunde");
 
 
-        tabDaten.setIndicator("Meine Daten");
-        tabDaten.setContent(new Intent(this, MeineDaten.class));
+        tabData.setIndicator("Meine Daten");
+        tabData.setContent(new Intent(this, MyData.class));
 
-        tabKarte.setIndicator("Karte");
-        tabKarte.setContent(new Intent(this, Karte.class));
+        tabMap.setIndicator("Map");
+        tabMap.setContent(new Intent(this, Map.class));
 
-        tabFreunde.setIndicator("Freunde");
-        tabFreunde.setContent(new Intent(this, MeineFreunde.class));
+        tabFriends.setIndicator("Freunde");
+        tabFriends.setContent(new Intent(this, MyFriends.class));
 
         /** Add the tabs  to the TabHost to display. */
-        tabHost.addTab(tabDaten);
-        tabHost.addTab(tabKarte);
-        tabHost.addTab(tabFreunde);
+        tabHost.addTab(tabData);
+        tabHost.addTab(tabMap);
+        tabHost.addTab(tabFriends);
 
 
         //Welcher Tab soll angezeigt werden?
@@ -57,7 +57,7 @@ public class MainActivity extends TabActivity {
         //while (manager.getBusy()){
         //
         //}
-        //ArrayList<User> database = manager.getmDatenbank();
+        //ArrayList<User> database = manager.getmDatabase();
 
         //----------------------------------------------------------------------------------------------
 

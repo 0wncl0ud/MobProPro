@@ -88,7 +88,7 @@
                 android:textSize="25dp" />
 
             <EditText
-                android:id="@+id/BenutzernameFilter"
+                android:id="@+id/UsernameFilter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
@@ -113,7 +113,7 @@
             android:orientation="horizontal">
 
             <ListView
-                android:id="@+id/neueFreundeList"
+                android:id="@+id/newFriendsList"
                 android:layout_width="fill_parent"
                 android:layout_height="250dp"
                 android:layout_gravity="center_horizontal"
@@ -135,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:onClick="AbbrechenNeueFreundeClicked"
+                android:onClick="AbortNewFriendClicked"
                 android:text="Abbrechen" />
 
             <Button
@@ -143,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="50"
-                android:onClick="speicherBenutzerListeClicked"
+                android:onClick="saveUserListClicked"
                 android:text="Speichern" />
         </LinearLayout>
     </LinearLayout>

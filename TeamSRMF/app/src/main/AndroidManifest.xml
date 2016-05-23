@@ -18,11 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NeueFreunde" />
-        <activity android:name=".MeinePosition" />
-        <activity android:name=".MeineFreunde" />
-        <activity android:name=".Karte" />
-        <activity android:name=".MeineDaten"></activity>
+        <activity android:name=".NewFriends" />
+        <activity android:name=".MyPosition" />
+        <activity android:name=".MyFriends" />
+        <activity android:name=".Map" />
+        <activity android:name=".MyData"></activity>
     </application>
 
 </manifest>

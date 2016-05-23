@@ -14,20 +14,20 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class Karte extends AppCompatActivity {
+public class Map extends AppCompatActivity {
     private ArrayList<User> freundeList = new ArrayList<User>();
-    TextView freundText1;
-    TextView freundText2;
-    TextView freundText3;
-    TextView freundText4;
+    TextView friendText1;
+    TextView friendText2;
+    TextView friendText3;
+    TextView friendText4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_karte);
-        freundText1=(TextView)findViewById(R.id.userView1);
-        freundText2=(TextView)findViewById(R.id.userView2);
-        freundText3=(TextView)findViewById(R.id.userView3);
-        freundText4=(TextView)findViewById(R.id.userView4);
+        setContentView(R.layout.activity_map);
+        friendText1 =(TextView)findViewById(R.id.userView1);
+        friendText2 =(TextView)findViewById(R.id.userView2);
+        friendText3 =(TextView)findViewById(R.id.userView3);
+        friendText4 =(TextView)findViewById(R.id.userView4);
         setPicture();
     }
 
@@ -42,30 +42,30 @@ public class Karte extends AppCompatActivity {
         Bitmap bmpMensaPlan = BitmapFactory.decodeResource(getResources(), R.drawable.mensaplan);
         Bitmap mutableBitmap = bmpMensaPlan.copy(Bitmap.Config.ARGB_8888, true);
         ImageView imVmensaplan=(ImageView)findViewById(R.id.imageView);
-        freundeList=MainActivity.manager.getmViewFreunde();
+        freundeList=MainActivity.manager.getmViewFriends();
         Canvas canvas = new Canvas(mutableBitmap);
-        freundText1.setText("-");
-        freundText2.setText("-");
-        freundText3.setText("-");
-        freundText4.setText("-");
+        friendText1.setText("-");
+        friendText2.setText("-");
+        friendText3.setText("-");
+        friendText4.setText("-");
         for (User freund:freundeList){
             int userColor = 0;
             switch (colorCounter){
                 case 0: userColor=Color.BLUE;
-                    freundText1.setText(freund.getName());
-                    freundText1.setTextColor(Color.BLUE);
+                    friendText1.setText(freund.getName());
+                    friendText1.setTextColor(Color.BLUE);
                     break;
                 case 1: userColor=Color.RED;
-                    freundText2.setText(freund.getName());
-                    freundText2.setTextColor(Color.RED);
+                    friendText2.setText(freund.getName());
+                    friendText2.setTextColor(Color.RED);
                     break;
                 case 2: userColor=Color.GREEN;
-                    freundText3.setText(freund.getName());
-                    freundText3.setTextColor(Color.GREEN);
+                    friendText3.setText(freund.getName());
+                    friendText3.setTextColor(Color.GREEN);
                 break;
                 case 3: userColor=Color.DKGRAY;
-                    freundText4.setText(freund.getName());
-                    freundText4.setTextColor(Color.DKGRAY);
+                    friendText4.setText(freund.getName());
+                    friendText4.setTextColor(Color.DKGRAY);
                 break;
             }
             canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition(),userColor);
@@ -89,7 +89,7 @@ public class Karte extends AppCompatActivity {
         }catch (InterruptedException ex){
             //error
         }
-       MainActivity.manager.setmViewFreunde(MainActivity.manager.syncList(MainActivity.manager.getmDatenbank(),MainActivity.manager.getmViewFreunde()));
+       MainActivity.manager.setmViewFriends(MainActivity.manager.syncList(MainActivity.manager.getmDatabase(),MainActivity.manager.getmViewFriends()));
        setPicture();
    }
 }

@@ -15,9 +15,9 @@ import android.widget.ImageView;
 
 import java.util.Date;
 
-public class MeinePosition extends AppCompatActivity {
-    ImageView imVmensaplan;
-    User meinUser;
+public class MyPosition extends AppCompatActivity {
+    ImageView imVmensamap;
+    User myUser;
     UserManager manager;
     int[] viewCoords;
     int imageX=0;
@@ -25,16 +25,16 @@ public class MeinePosition extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meine_position);
+        setContentView(R.layout.activity_my_position);
         manager= UserManager.getInstance(getApplicationContext());
-        imVmensaplan = (ImageView) findViewById(R.id.imageViewMeinePosition);
-        getMeinBenutzer();
-        setPicture(meinUser.getXposition(), meinUser.getYposition());
+        imVmensamap = (ImageView) findViewById(R.id.imageViewMeinePosition);
+        getMyUser();
+        setPicture(myUser.getXposition(), myUser.getYposition());
         viewCoords = new int[2];
-        imVmensaplan.getLocationOnScreen(viewCoords);
-        imVmensaplan.setOnTouchListener( new View.OnTouchListener() {
+        imVmensamap.getLocationOnScreen(viewCoords);
+        imVmensamap.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                if (v.equals(imVmensaplan)) {
+                if (v.equals(imVmensamap)) {
                     int touchX = (int) event.getX();
                     int touchY = (int) event.getY();
                     imageX = touchX - viewCoords[0]; // viewCoords[0] is the X coordinate
@@ -48,13 +48,13 @@ public class MeinePosition extends AppCompatActivity {
     }
 
     void setPicture(int x,int y) {
-        Bitmap bmpMensaPlan = BitmapFactory.decodeResource(getResources(), R.drawable.mensaplan);
-        Bitmap mutableBitmap = bmpMensaPlan.copy(Bitmap.Config.ARGB_8888, true);
+        Bitmap bmpMensaMap = BitmapFactory.decodeResource(getResources(), R.drawable.mensaplan);
+        Bitmap mutableBitmap = bmpMensaMap.copy(Bitmap.Config.ARGB_8888, true);
         Canvas canvas = new Canvas(mutableBitmap);
         if(x!=0 && y!=0){
             addNewMarker(canvas,x,y);
         }
-        imVmensaplan.setImageDrawable(new BitmapDrawable(getResources(), mutableBitmap));
+        imVmensamap.setImageDrawable(new BitmapDrawable(getResources(), mutableBitmap));
     }
 
     Canvas addNewMarker(Canvas canvas,int x, int y){
@@ -63,35 +63,35 @@ public class MeinePosition extends AppCompatActivity {
         canvas.drawCircle(x, y, 15, mPaint);
         return canvas;
     }
-    public void NichtMehrDaClicked(View v) {
-        getMeinBenutzer();
-        meinUser.setXposition(0);
-        meinUser.setYposition(0);
-        meinUser.setTimeStamp();
-        manager.editUser(meinUser);
+    public void awayClicked(View v) {
+        getMyUser();
+        myUser.setXposition(0);
+        myUser.setYposition(0);
+        myUser.setTimeStamp();
+        manager.editUser(myUser);
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 
-    public void speichereMeinePositionClicked(View v) {
-        getMeinBenutzer();
-        meinUser.setXposition(imageX);
-        meinUser.setYposition(imageY);
-        meinUser.setTimeStamp();
-        meinUser.setOldname(meinUser.getName());
-        manager.editUser(meinUser);
+    public void saveMyPositionClicked(View v) {
+        getMyUser();
+        myUser.setXposition(imageX);
+        myUser.setYposition(imageY);
+        myUser.setTimeStamp();
+        myUser.setOldname(myUser.getName());
+        manager.editUser(myUser);
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
 
-    public void abbrechenClicked(View v) {
+    public void abortClicked(View v) {
         Intent mainActivity = new Intent(this, MainActivity.class);
         startActivity(mainActivity);
     }
-    private void getMeinBenutzer(){
-        meinUser =manager.getmMeineDaten();
-        if(meinUser ==null){
-            meinUser =new User("Hans Muster","Informatik", "3","Blue",0,0,new Date());
+    private void getMyUser(){
+        myUser =manager.getmMyData();
+        if(myUser ==null){
+            myUser =new User("Hans Muster","Informatik", "3","Blue",0,0,new Date());
         }
     }
 }

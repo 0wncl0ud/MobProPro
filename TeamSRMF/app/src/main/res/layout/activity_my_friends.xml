@@ -43,19 +43,19 @@
             android:layout_height="wrap_content"
             android:text="Löschen"
             android:id="@+id/löscheFreunde"
-            android:onClick="löscheFreundeClicked" />
+            android:onClick="deleteFriendsClicked" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hinzufügen"
             android:id="@+id/hinzufügenFreunde"
-            android:onClick="hinzufügenFreundeClicked" />
+            android:onClick="addFriendsClicked" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Anzeigen"
             android:id="@+id/anzeigenFreunde"
-            android:onClick="anzeigenFreundeClicked" />
+            android:onClick="viewFriendsClicked" />
     </LinearLayout>
 
 </ScrollView>

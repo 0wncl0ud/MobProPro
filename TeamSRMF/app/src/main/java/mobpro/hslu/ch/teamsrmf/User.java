@@ -30,11 +30,11 @@ public class User implements java.io.Serializable {
         return mName;
     }
 
-    public String getFarbe(){
+    public String getColor(){
         return mFarbe;
     }
 
-    public String getStudienrichtung(){
+    public String getFieldOfStudy(){
         return mStudienrichtung;
     }
 
@@ -52,18 +52,18 @@ public class User implements java.io.Serializable {
 
     public Date getTimeStamp(){ return mTimeStamp; }
 
-    public String getSemester() { return mSemester; }
+    public String getTerm() { return mSemester; }
 
     public void setName(String name){
         mOldName = mName;
         mName = name;
     }
 
-    public void setFarbe(String farbe){
+    public void setColor(String farbe){
         mFarbe = farbe;
     }
 
-    public void setStudienrichtung(String studienrichtung){
+    public void setFieldOfStudy(String studienrichtung){
         mStudienrichtung = studienrichtung;
     }
 
@@ -79,7 +79,7 @@ public class User implements java.io.Serializable {
         mOldName = name;
     }
 
-    public void setSemster(String semster){
+    public void setTerm(String semster){
         mSemester = semster;
     }
 

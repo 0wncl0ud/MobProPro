@@ -30,31 +30,31 @@ public class UserManager {
     private static final int SERVERPORT = 4711;
     private static final String SERVER_IP = "10.0.2.2";
 
-    private static ArrayList<User> mMeineFreunde, mViewFreunde, mDatenbank;
-    private static User mMeineDaten;
+    private static ArrayList<User> mMyFriends, mViewFriends, mDatenbank;
+    private static User mMyData;
     private static Socket socket;
     private static boolean mBusy;
 
-    private String mBenutzerFileName;
-    private String mFreundeFileName;
+    private String mUserFileName;
+    private String mFriendsFileName;
     private static Context context;
 
 
     private UserManager() {
-        mMeineFreunde = new ArrayList<>();
-        mViewFreunde = new ArrayList<>();
-        mMeineDaten = null;
+        mMyFriends = new ArrayList<>();
+        mViewFriends = new ArrayList<>();
+        mMyData = null;
         mBusy = false;
-        mBenutzerFileName = "User.txt";
-        mFreundeFileName = "Freunde.txt";
-        ArrayList<User> tempList = parseToList(readFromFile(context.getFilesDir().getPath(), mBenutzerFileName));
+        mUserFileName = "User.txt";
+        mFriendsFileName = "Freunde.txt";
+        ArrayList<User> tempList = parseToList(readFromFile(context.getFilesDir().getPath(), mUserFileName));
         if (!tempList.isEmpty()) {
-            mMeineDaten = tempList.get(0);
-            mMeineDaten.setOldname(null);
+            mMyData = tempList.get(0);
+            mMyData.setOldname(null);
         }
-        tempList = parseToList(readFromFile(context.getFilesDir().getPath(), mFreundeFileName));
+        tempList = parseToList(readFromFile(context.getFilesDir().getPath(), mFriendsFileName));
         if (!tempList.isEmpty()) {
-            mMeineFreunde.addAll(tempList);
+            mMyFriends.addAll(tempList);
         }
         loadList();
         //TODO wait until finish
@@ -80,12 +80,12 @@ public class UserManager {
     }
 
     public void editUser(User user) {
-        mMeineDaten = user;
+        mMyData = user;
         mBusy = true;
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, user);
         ArrayList<User> temp = new ArrayList<User>();
-        temp.add(mMeineDaten);
-        saveToFile(temp, context.getFilesDir().getPath(), mBenutzerFileName);
+        temp.add(mMyData);
+        saveToFile(temp, context.getFilesDir().getPath(), mUserFileName);
     }
 
     public void loadList(){
@@ -94,37 +94,37 @@ public class UserManager {
         new DataLoader().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, dummy);
     }
 
-    public ArrayList<User> getMeineFreunde() {
-        return mMeineFreunde;
+    public ArrayList<User> getMyFriends() {
+        return mMyFriends;
     }
 
-    public ArrayList<User> getmDatenbank() {
+    public ArrayList<User> getmDatabase() {
         return mDatenbank;
     }
 
-    public User getmMeineDaten() {
-        return mMeineDaten;
+    public User getmMyData() {
+        return mMyData;
     }
 
-    public ArrayList<User> getmViewFreunde() {
-        return mViewFreunde;
+    public ArrayList<User> getmViewFriends() {
+        return mViewFriends;
     }
 
-    public void setmViewFreunde(ArrayList<User> neueViewList) {
-        mViewFreunde = neueViewList;
+    public void setmViewFriends(ArrayList<User>newViewList) {
+        mViewFriends = newViewList;
     }
 
-    public void addmMeineFreunde(ArrayList<User> addList) {
-        mMeineFreunde = mergeUserList(mMeineFreunde, addList);
-        saveToFile(mMeineFreunde, context.getFilesDir().getPath(), mFreundeFileName);
+    public void addmMyFriends(ArrayList<User> addList) {
+        mMyFriends = mergeUserList(mMyFriends, addList);
+        saveToFile(mMyFriends, context.getFilesDir().getPath(), mFriendsFileName);
     }
 
-    public void löschemMeineFreunde(ArrayList<User> löschList) {
-        mMeineFreunde = löscheUserList(mMeineFreunde, löschList);
-        saveToFile(mMeineFreunde, context.getFilesDir().getPath(), mFreundeFileName);
+    public void deleteMyFriends(ArrayList<User> deleteList) {
+        mMyFriends = deleteUserList(mMyFriends, deleteList);
+        saveToFile(mMyFriends, context.getFilesDir().getPath(), mFriendsFileName);
     }
 
-    public ArrayList<User> convertStringToBenutzer(ArrayList<String> nameList, ArrayList<User> userList) {
+    public ArrayList<User> convertStringToUser(ArrayList<String> nameList, ArrayList<User> userList) {
         ArrayList<User> checkedUserList = new ArrayList<>();
         if (userList != null) {
             for (User user : userList) {
@@ -136,31 +136,31 @@ public class UserManager {
         return checkedUserList;
     }
 
-    public ArrayList<User> mergeUserList(ArrayList<User> liste1, ArrayList<User> liste2) {
-        if (!liste1.isEmpty()) {
-            if (!liste2.isEmpty()) {
-                for (User user2 : liste2) {
-                    for (User user1 : liste1) {
+    public ArrayList<User> mergeUserList(ArrayList<User> list1, ArrayList<User> list2) {
+        if (!list1.isEmpty()) {
+            if (!list2.isEmpty()) {
+                for (User user2 : list2) {
+                    for (User user1 : list1) {
                         if (user1.getName().equals(user2.getName())) {
-                            liste1.remove(user1);
+                            list1.remove(user1);
                             break;
                         }
                     }
-                    liste1.add(user2);
+                    list1.add(user2);
                 }
             }
         } else {
-            liste1 = liste2;
+            list1 = list2;
         }
-        return liste1;
+        return list1;
     }
 
-    public ArrayList<User> syncList(ArrayList<User> alleList, ArrayList<User> vorgabeList) {
+    public ArrayList<User> syncList(ArrayList<User> unfilteredList, ArrayList<User> filteredList) {
         ArrayList<User> result=new ArrayList<>();
-        if (!alleList.isEmpty()) {
-            if (!vorgabeList.isEmpty()) {
-                for (User user2 : alleList) {
-                    for (User user1 : vorgabeList) {
+        if (!unfilteredList.isEmpty()) {
+            if (!filteredList.isEmpty()) {
+                for (User user2 : unfilteredList) {
+                    for (User user1 : filteredList) {
                         if (user1.getName().equals(user2.getName())) {
                             result.add(user2);
                             break;
@@ -172,27 +172,27 @@ public class UserManager {
         return result;
     }
 
-    public ArrayList<User> löscheUserList(ArrayList<User> vorgabeListe, ArrayList<User> löschListe) {
-        if (!vorgabeListe.isEmpty()) {
-            if (!löschListe.isEmpty()) {
-                for (User user2 : löschListe) {
-                    for (User user1 : vorgabeListe) {
+    public ArrayList<User> deleteUserList(ArrayList<User> baseList, ArrayList<User> deleteList) {
+        if (!baseList.isEmpty()) {
+            if (!deleteList.isEmpty()) {
+                for (User user2 : deleteList) {
+                    for (User user1 : baseList) {
                         if (user1.getName().equals(user2.getName())) {
-                            vorgabeListe.remove(user1);
+                            baseList.remove(user1);
                             break;
                         }
                     }
                 }
             }
         }
-        return vorgabeListe;
+        return baseList;
     }
 
-    public ArrayList<User> filterUserListName(String name, ArrayList<User> liste) {
+    public ArrayList<User> filterUserListName(String name, ArrayList<User> list) {
         ArrayList<User> resultat=new ArrayList<>();
-        if(liste!=null) {
-            if (!liste.isEmpty()) {
-                for (User user : liste) {
+        if(list!=null) {
+            if (!list.isEmpty()) {
+                for (User user : list) {
                     if (user.getName().equals(name)) {
                         resultat.add(user);
                         break;
@@ -203,7 +203,7 @@ public class UserManager {
         return resultat;
     }
 
-        public ArrayList<String> convertBenutzerToString (ArrayList <User> userList) {
+        public ArrayList<String> convertUserToString(ArrayList <User> userList) {
             ArrayList<String> nameList = new ArrayList<String>();
             if (userList != null) {
                 for (User user : userList) {
@@ -250,9 +250,9 @@ public class UserManager {
         data.append("{\n\t\"User\": [{\n");
         for (int i = 0; i < list.size(); i++) {
             data.append("\t\t\"Name\": \"" + list.get(i).getName() + "\",\n");
-            data.append("\t\t\"Studiengang\": \"" + list.get(i).getStudienrichtung() + "\",\n");
-            data.append("\t\t\"Farbe\": \"" + list.get(i).getFarbe() + "\",\n");
-            data.append("\t\t\"Semester\": \"" + list.get(i).getSemester() + "\",\n");
+            data.append("\t\t\"Studiengang\": \"" + list.get(i).getFieldOfStudy() + "\",\n");
+            data.append("\t\t\"Farbe\": \"" + list.get(i).getColor() + "\",\n");
+            data.append("\t\t\"Semester\": \"" + list.get(i).getTerm() + "\",\n");
             data.append("\t\t\"TimeStamp\": \"" + list.get(i).getTimeStamp() + "\",\n");
             data.append("\t\t\"Position\": [\n");
             data.append("\t\t\t\"" + list.get(i).getXposition() + "\",\n");
@@ -263,9 +263,9 @@ public class UserManager {
         }
         data.append("\t}]\n");
         data.append("}");
-        File fileBenutzer = new File(path, fileName);
+        File fileUser = new File(path, fileName);
         try {
-            Writer writer = new BufferedWriter(new FileWriter(fileBenutzer));
+            Writer writer = new BufferedWriter(new FileWriter(fileUser));
             writer.write(data.toString());
             writer.flush();
             writer.close();
@@ -278,8 +278,8 @@ public class UserManager {
     public JSONObject readFromFile(String path, String fileName) {
         JSONObject jsonObject = new JSONObject();
         try {
-            File fileBenutzer = new File(path, fileName);
-            BufferedReader reader = new BufferedReader(new FileReader(fileBenutzer));
+            File fileUser = new File(path, fileName);
+            BufferedReader reader = new BufferedReader(new FileReader(fileUser));
             String line = null;
             StringBuilder stringBuilder = new StringBuilder();
             while ((line = reader.readLine()) != null) {
@@ -297,26 +297,26 @@ public class UserManager {
     }
 
     private ArrayList<User> parseToList(JSONObject obj) {
-        ArrayList<User> userListe = new ArrayList<>();
+        ArrayList<User> userList = new ArrayList<>();
         try {
-            JSONArray benutzer = obj.getJSONArray("User");
-            for (int i = 0; i < benutzer.length(); i++) {
+            JSONArray user = obj.getJSONArray("User");
+            for (int i = 0; i < user.length(); i++) {
                 //String date = benutzer.getJSONObject(i).getString("TimeStamp");
                 //DateFormat df = new SimpleDateFormat("EEE MMM dd kk:mm:ss");
                 //Date result =  df.parse(date);
                 //TODO parse date correct!
                 Date result = new Date();
-                userListe.add(new User(benutzer.getJSONObject(i).getString("Name"),
-                        benutzer.getJSONObject(i).getString("Studiengang"),
-                        benutzer.getJSONObject(i).getString("Semester"),
+                userList.add(new User(user.getJSONObject(i).getString("Name"),
+                        user.getJSONObject(i).getString("Studiengang"),
+                        user.getJSONObject(i).getString("Semester"),
                         "rot",
-                        Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(0)),
-                        Integer.parseInt(benutzer.getJSONObject(i).getJSONArray("Position").getString(1)),
+                        Integer.parseInt(user.getJSONObject(i).getJSONArray("Position").getString(0)),
+                        Integer.parseInt(user.getJSONObject(i).getJSONArray("Position").getString(1)),
                         result));
             }
         } catch (JSONException ex) {
             System.out.print(ex.getMessage());
         }
-        return userListe;
+        return userList;
     }
 }

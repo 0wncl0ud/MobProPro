@@ -48,7 +48,7 @@ android:entryValues="@array/StudienrichtungValues"
 android:key="Studienrichtung"
 android:persistent="true"
 android:shouldDisableView="true"
-android:id="@+id/spinnerStudienrichtung"/>
+android:id="@+id/spinnerFieldOfStudy"/>
 
 <TextView
 android:layout_width="match_parent"
@@ -65,7 +65,7 @@ android:entryValues="@array/SemesterValues"
 android:key="Studienrichtung"
 android:persistent="true"
 android:shouldDisableView="true"
-android:id="@+id/spinnerSemester"/>
+android:id="@+id/spinnerTerm"/>
 
 
 <Button
@@ -73,7 +73,7 @@ android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:text="Setzte meine Position"
 android:id="@+id/setztePosition"
-android:onClick="setztePositionClicked" />
+android:onClick="setPositionClicked" />
 
 <Button
 android:layout_width="match_parent"
