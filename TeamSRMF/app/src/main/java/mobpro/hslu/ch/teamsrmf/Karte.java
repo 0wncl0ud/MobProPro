@@ -32,22 +32,42 @@ public class Karte extends AppCompatActivity {
     }
 
     void setPicture(){
+        int colorCounter=0;
         Bitmap bmpMensaPlan = BitmapFactory.decodeResource(getResources(), R.drawable.mensaplan);
         Bitmap mutableBitmap = bmpMensaPlan.copy(Bitmap.Config.ARGB_8888, true);
         ImageView imVmensaplan=(ImageView)findViewById(R.id.imageView);
         freundeList=MainActivity.manager.getmViewFreunde();
         Canvas canvas = new Canvas(mutableBitmap);
         for (Benutzer freund:freundeList){
-            canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition());
+            int userColor;
+            switch (colorCounter){
+                case 0: userColor=Color.BLUE; break;
+                case 1: userColor=Color.RED; break;
+                case 2: userColor=Color.GREEN; break;
+                case 3: userColor=Color.YELLOW; break;
+            }
+            canvas=addNewMarker(canvas,freund.getXposition(),freund.getYposition(),userColor);
+            colorCounter++;
         }
         imVmensaplan.setImageDrawable(null);
         imVmensaplan.setImageDrawable(new BitmapDrawable(getResources(),mutableBitmap));
     }
 
-    Canvas addNewMarker(Canvas canvas,int posX, int posY){
+    Canvas addNewMarker(Canvas canvas,int posX, int posY,int color){
         Paint mPaint = new Paint();
-        mPaint.setColor(Color.RED);
+        mPaint.setColor(color);
         canvas.drawCircle(posX, posY, 15, mPaint);
         return canvas;
     }
+
+   public void refreshList (View v){
+       //todo refresh list
+       MainActivity.manager.loadList();
+       //replace this code
+       while(MainActivity.manager.getBusy()){
+
+       }
+       MainActivity.manager.setmViewFreunde(MainActivity.manager.syncList(MainActivity.manager.getmDatenbank(),MainActivity.manager.getmViewFreunde()));
+       setPicture();
+   }
 }

@@ -57,9 +57,7 @@ android:textAppearance="?android:attr/textAppearanceLarge"
 android:text="Semester"
 android:id="@+id/TxtSemester"
 android:textSize="30dp"
-android:singleLine="false" />
-
-<Spinner
+android:singleLine="false" />  <Spinner
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
 android:entries="@array/Semester"
@@ -69,14 +67,6 @@ android:persistent="true"
 android:shouldDisableView="true"
 android:id="@+id/spinnerSemester"/>
 
-<TextView
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:textAppearance="?android:attr/textAppearanceLarge"
-android:text="Farbe"
-android:id="@+id/TxtFarbe"
-android:textSize="30dp"
-android:singleLine="false" />
 
 <Button
 android:layout_width="match_parent"
