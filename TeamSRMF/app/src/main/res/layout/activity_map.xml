@@ -3,17 +3,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:weightSum="110">
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:singleLine="false"
         android:text="Finde deine Freunde"
-        android:layout_weight="5"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30dp" />
+        android:textSize="20dp" />
 
 
     <ImageView
@@ -22,18 +21,18 @@
         android:layout_weight="70"
         android:layout_gravity="center"
         android:id="@+id/imageView" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_height="25dp"
         android:orientation="horizontal">
         <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="-"
-        android:layout_weight="3"
-        android:id="@+id/userView1"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="-"
+            android:layout_weight="3"
+            android:id="@+id/userView1"/>
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -42,31 +41,31 @@
             android:layout_weight="3"
             android:id="@+id/userView2" />
     </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:orientation="horizontal">
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="-"
-        android:layout_weight="5"
-        android:id="@+id/userView3" />
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="-"
-        android:layout_weight="5"
-        android:id="@+id/userView4" />
-        </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="-"
+            android:layout_weight="3"
+            android:id="@+id/userView3" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="-"
+            android:layout_weight="3"
+            android:id="@+id/userView4" />
+    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Aktulalisieren"
+        android:layout_height="37dp"
+        android:text="Aktualisieren"
         android:id="@+id/refreshList"
         android:onClick="refreshList" />
 

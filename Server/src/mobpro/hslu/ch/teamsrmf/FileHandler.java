@@ -37,9 +37,9 @@ public class FileHandler {
         data.append("{\n\t\"Benutzer\": [{\n");
         for(int i=0; i < list.size(); i++){
             data.append("\t\t\"Name\": \"" + list.get(i).getName()                    + "\",\n");
-            data.append("\t\t\"Studiengang\": \"" + list.get(i).getStudienrichtung()  + "\",\n");
-            data.append("\t\t\"Farbe\": \"" + list.get(i).getFarbe()                  + "\",\n");
-            data.append("\t\t\"Semester\": \"" + list.get(i).getSemester()            + "\",\n");
+            data.append("\t\t\"Studiengang\": \"" + list.get(i).getFieldOfStudy()  + "\",\n");
+            data.append("\t\t\"Farbe\": \"" + list.get(i).getColor()                  + "\",\n");
+            data.append("\t\t\"Semester\": \"" + list.get(i).getTerm()            + "\",\n");
             data.append("\t\t\"TimeStamp\": \"" + list.get(i).getTimeStamp()          + "\",\n");
             data.append("\t\t\"Position\": [\n");
             data.append("\t\t\t\"" + list.get(i).getXposition() + "\",\n");

@@ -39,9 +39,9 @@ public class BenutzerManager {
         for(int i=0; i < mList.size();i++){
             if(mList.get(i).getName().equalsIgnoreCase(user.getOldName())){
                 mList.get(i).setName(user.getName());
-                mList.get(i).setFarbe(user.getFarbe());
-                mList.get(i).setSemster(user.getSemester());
-                mList.get(i).setStudienrichtung(user.getStudienrichtung());
+                mList.get(i).setColor(user.getColor());
+                mList.get(i).setTerm(user.getTerm());
+                mList.get(i).setFieldOfStudy(user.getFieldOfStudy());
                 mList.get(i).setXposition(user.getXposition());
                 mList.get(i).setYposition(user.getYposition());        
                 mList.get(i).setTimeStamp();               
