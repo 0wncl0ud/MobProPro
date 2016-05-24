@@ -1,23 +1,43 @@
 {
 	"Benutzer": [{
-		"Name": "Kilian",
-		"Studiengang": "Elektrotechnik",
+		"Name": "Dummy1",
+		"Studiengang": "Maschinenbau",
 		"Farbe": "rot",
-		"Semester": "5",
-		"TimeStamp": "Sat May 21 10:47:50 CEST 2016",
+		"Semester": "1",
+		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
 		"Position": [
-			"0",
-			"0"
+			"200",
+			"200"
 		]
 	}, {
-		"Name": "Flavio",
+		"Name": "Dummy2",
+		"Studiengang": "Maschinenbau",
+		"Farbe": "rot",
+		"Semester": "1",
+		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
+		"Position": [
+			"34",
+			"233"
+		]
+	}, {
+		"Name": "Silvan",
+		"Studiengang": "Elektrotechnik",
+		"Farbe": "rot",
+		"Semester": "2",
+		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
+		"Position": [
+			"657",
+			"231"
+		]
+	}, {
+		"Name": "Manuel",
 		"Studiengang": "Elektrotechnik",
 		"Farbe": "Blau",
-		"Semester": "6",
-		"TimeStamp": "Sat May 21 10:47:50 CEST 2016",
+		"Semester": "5",
+		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
 		"Position": [
-			"297",
-			"446"
+			"728",
+			"497"
 		]
 	}]
 }
