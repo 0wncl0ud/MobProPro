@@ -4,7 +4,7 @@
 		"Studiengang": "Maschinenbau",
 		"Farbe": "rot",
 		"Semester": "1",
-		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
+		"TimeStamp": "Mon May 30 14:01:41 CEST 2016",
 		"Position": [
 			"200",
 			"200"
@@ -14,7 +14,7 @@
 		"Studiengang": "Maschinenbau",
 		"Farbe": "rot",
 		"Semester": "1",
-		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
+		"TimeStamp": "Mon May 30 14:01:41 CEST 2016",
 		"Position": [
 			"34",
 			"233"
@@ -22,22 +22,22 @@
 	}, {
 		"Name": "Silvan",
 		"Studiengang": "Elektrotechnik",
-		"Farbe": "rot",
+		"Farbe": "Blau",
 		"Semester": "2",
-		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
+		"TimeStamp": "Mon May 30 14:01:41 CEST 2016",
 		"Position": [
-			"657",
-			"231"
+			"129",
+			"356"
 		]
 	}, {
 		"Name": "Manuel",
 		"Studiengang": "Elektrotechnik",
-		"Farbe": "Blau",
+		"Farbe": "rot",
 		"Semester": "5",
-		"TimeStamp": "Tue May 24 18:01:53 CEST 2016",
+		"TimeStamp": "Mon May 30 14:01:41 CEST 2016",
 		"Position": [
-			"728",
-			"497"
+			"0",
+			"0"
 		]
 	}]
 }
